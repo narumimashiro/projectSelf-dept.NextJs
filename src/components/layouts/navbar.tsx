@@ -11,7 +11,7 @@ interface Props {
 
 const Navbar = ({ children }: Props) => {
   return (
-    <>
+    <div>
       <nav className={styles.container}>
         <div className={styles["to-top"]}>
           <Link href="/">Top</Link>
@@ -25,7 +25,7 @@ const Navbar = ({ children }: Props) => {
         </div>
       </nav>
       { children }
-    </>
+    </div>
   )
 }
 export default Navbar;
