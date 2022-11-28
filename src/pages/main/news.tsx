@@ -19,6 +19,17 @@ export const getStaticProps = async () => {
     },
   };
 }
+// SSGとして実装
+
+// SSRとして実装
+// export const getServerSideProps = async (context) => {
+//   // SSGのときに実装したpost.tsでfetch関数などを用いてデータベースから取得したデータを用いる
+//   return {
+//     props: {
+//       // コンポーネントに渡すためのprops
+//     }
+//   }
+// }
 
 type Props = {
   id: string;
@@ -29,7 +40,7 @@ type Props = {
 
 // TODO 型解決
 // const News = ( { allPostsData }: Array<Props> ) => {
-  const News = ( { allPostsData }: any ) => {
+const News = ( { allPostsData }: any ) => {
   console.log(allPostsData)
   return (
     <div>
@@ -50,7 +61,7 @@ type Props = {
                 src={thumbnail}
                 alt="HatsuneMiku" />
               </Link>
-              <Link href="/">
+              <Link href={`posts/${id}`}>
                 <p className={utilStyles.boldText}>{ title }</p>
               </Link>
               <small className={utilStyles.lightText}>{ date }</small>
