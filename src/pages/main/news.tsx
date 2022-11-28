@@ -5,8 +5,32 @@ import NavBar from '@/components/layouts/NavBar'
 import MikuFooter from '@/components/layouts/FooterMiku'
 import styles from 'styles/main/News.module.sass'
 import utilStyles from 'styles/utils.module.sass'
+import { getPostsData } from '@/lib/post'
 
-const News = () => {
+// SSGとして実装
+// nextjsの用意関数 外部から一度だけデータを取ってくる関数
+export const getStaticProps = async () => {
+  const allPostsData = getPostsData();
+  
+  // getStaticPropsのお決まりreturn
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+type Props = {
+  id: string;
+  title: string;
+  date: string;
+  thumbnail: string;
+};
+
+// TODO 型解決
+// const News = ( { allPostsData }: Array<Props> ) => {
+  const News = ( { allPostsData }: any ) => {
+  console.log(allPostsData)
   return (
     <div>
       <Head>
@@ -18,78 +42,20 @@ const News = () => {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h1>NEWS</h1>
         <div className={styles.grid}>
-          <article>
-            <Link href="/">
-              <img
-              className={styles.thumbnailImage}
-              src="/images/HatsuneMikuVsing.jpg"
-              alt="HatsuneMiku" />
-            </Link>
-            <Link href="/">
-              <p className={utilStyles.boldText}>Virtual Singer Hatsune Miku</p>
-            </Link>
-            <small className={utilStyles.lightText}>October 31, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-              className={styles.thumbnailImage}
-              src="/images/HatsuneMikuAtNightCode.jpg"
-              alt="HatsuneMiku" />
-            </Link>
-            <Link href="/">
-              <p className={utilStyles.boldText}>Virtual Singer Hatsune Miku</p>
-            </Link>
-            <small className={utilStyles.lightText}>October 31, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-              className={styles.thumbnailImage}
-              src="/images/HatsuneMikuMoreMore.jpg"
-              alt="HatsuneMiku" />
-            </Link>
-            <Link href="/">
-              <p className={utilStyles.boldText}>Virtual Singer Hatsune Miku</p>
-            </Link>
-            <small className={utilStyles.lightText}>October 31, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-              className={styles.thumbnailImage}
-              src="/images/HatsuneMikuLeoNeed.jpg"
-              alt="HatsuneMiku" />
-            </Link>
-            <Link href="/">
-              <p className={utilStyles.boldText}>Virtual Singer Hatsune Miku</p>
-            </Link>
-            <small className={utilStyles.lightText}>October 31, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-              className={styles.thumbnailImage}
-              src="/images/HatsuneMikuVivid.jpg"
-              alt="HatsuneMiku" />
-            </Link>
-            <Link href="/">
-              <p className={utilStyles.boldText}>Virtual Singer Hatsune Miku</p>
-            </Link>
-            <small className={utilStyles.lightText}>October 31, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-              className={styles.thumbnailImage}
-              src="/images/HatsuneMikuDashow.jpg"
-              alt="HatsuneMiku" />
-            </Link>
-            <Link href="/">
-              <p className={utilStyles.boldText}>Virtual Singer Hatsune Miku</p>
-            </Link>
-            <small className={utilStyles.lightText}>October 31, 2022</small>
-          </article>
+          { allPostsData.map(({id, title, date, thumbnail}: Props) => (
+            <article key={id}>
+              <Link href={`posts/${id}`}>
+                <img
+                className={styles.thumbnailImage}
+                src={thumbnail}
+                alt="HatsuneMiku" />
+              </Link>
+              <Link href="/">
+                <p className={utilStyles.boldText}>{ title }</p>
+              </Link>
+              <small className={utilStyles.lightText}>{ date }</small>
+            </article>
+          ))}
         </div> 
       </section>
       
