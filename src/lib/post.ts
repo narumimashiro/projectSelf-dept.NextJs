@@ -5,26 +5,28 @@ import matter from "gray-matter"
 // process.cwd()はcurrent dirctoryのこと
 const postDirectory = path.join(process.cwd(), "src/posts");
 
+type PostData = {
+  id:string,
+  title:string,
+  date:string,
+  thumbnail:string
+}
+
 // mdファイルデータを取り出す
-export function getPostsData() {
+export function getPostsData(): Array<PostData> {
   // dirctory内のファイル名をオブジェクトで取得する
   const fileNames = fs.readdirSync(postDirectory);
-  const allPostData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '');
 
-    // ファイルパスの取得
-    const fullPath = path.join(postDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf-8");
+  const postdata: Array<PostData> = Array(fileNames.length).fill({id:'', title:'', date:'', thumbnail:''});
+  fileNames.forEach((el, index) => {
+    const id = el.replace(/\.md$/, '');
+    const fullPath = path.join(postDirectory, el);
+    const fileInfo = fs.readFileSync(fullPath, "utf-8");
+    const { data } = matter(fileInfo);
+    
+    postdata[index] = {id: id, title: data.title, date: data.date, thumbnail: data.thumbnail};
+  })
 
-    // npm install gray-matter →　markdownファイルを解析するもの
-    const matterResult = matter(fileContents);
 
-    // idとデータを返す
-    return {
-      id,
-      ...matterResult.data, 
-    };
-  });
-
-  return allPostData;
+  return postdata;
 }

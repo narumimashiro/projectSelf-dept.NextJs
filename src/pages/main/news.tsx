@@ -6,22 +6,23 @@ import MikuFooter from '@/components/layouts/FooterMiku'
 import styles from 'styles/main/News.module.sass'
 import utilStyles from 'styles/utils.module.sass'
 import { getPostsData } from '@/lib/post'
+import { InferGetStaticPropsType } from 'next';
 
-// SSGとして実装
+// ********** SSGとして実装
 // nextjsの用意関数 外部から一度だけデータを取ってくる関数
 export const getStaticProps = async () => {
-  const allPostsData = getPostsData();
+  const postData = getPostsData();
   
   // getStaticPropsのお決まりreturn
   return {
     props: {
-      allPostsData,
+      postData,
     },
   };
 }
-// SSGとして実装
+// SSGとして実装 **********
 
-// SSRとして実装
+// ********** SSRとして実装 
 // export const getServerSideProps = async (context) => {
 //   // SSGのときに実装したpost.tsでfetch関数などを用いてデータベースから取得したデータを用いる
 //   return {
@@ -30,18 +31,10 @@ export const getStaticProps = async () => {
 //     }
 //   }
 // }
+// SSRとして実装 **********
 
-type Props = {
-  id: string;
-  title: string;
-  date: string;
-  thumbnail: string;
-};
-
-// TODO 型解決
-// const News = ( { allPostsData }: Array<Props> ) => {
-const News = ( { allPostsData }: any ) => {
-  console.log(allPostsData)
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+const News = ( { postData }: Props ) => {
   return (
     <div>
       <Head>
@@ -53,13 +46,13 @@ const News = ( { allPostsData }: any ) => {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h1>NEWS</h1>
         <div className={styles.grid}>
-          { allPostsData.map(({id, title, date, thumbnail}: Props) => (
+          { postData.map(({id, title, date, thumbnail}) => (
             <article key={id}>
               <Link href={`posts/${id}`}>
                 <img
                 className={styles.thumbnailImage}
                 src={thumbnail}
-                alt="HatsuneMiku" />
+                alt={id} />
               </Link>
               <Link href={`posts/${id}`}>
                 <p className={utilStyles.boldText}>{ title }</p>
