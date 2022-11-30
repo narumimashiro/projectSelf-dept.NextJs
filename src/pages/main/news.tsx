@@ -1,17 +1,19 @@
 import Head from 'next/head'
 import Link from 'next/link';
 import type { ReactElement } from 'react'
-import NavBar from '@/components/layouts/NavBar'
-import MikuFooter from '@/components/layouts/FooterMiku'
+import NavBar from '@/components/layouts/navbar'
+import MikuFooter from '@/components/layouts/mikufooter'
 import styles from 'styles/main/News.module.sass'
 import utilStyles from 'styles/utils.module.sass'
-import { getPostsData } from '@/lib/post'
+import { getPostsDataList } from '@/lib/post'
 import { InferGetStaticPropsType } from 'next';
+
+const MdPage = '../posts';
 
 // ********** SSGとして実装
 // nextjsの用意関数 外部から一度だけデータを取ってくる関数
 export const getStaticProps = async () => {
-  const postData = getPostsData();
+  const postData = getPostsDataList();
   
   // getStaticPropsのお決まりreturn
   return {
@@ -48,13 +50,13 @@ const News = ( { postData }: Props ) => {
         <div className={styles.grid}>
           { postData.map(({id, title, date, thumbnail}) => (
             <article key={id}>
-              <Link href={`posts/${id}`}>
+              <Link href={`${MdPage}/${id}`}>
                 <img
                 className={styles.thumbnailImage}
                 src={thumbnail}
                 alt={id} />
               </Link>
-              <Link href={`posts/${id}`}>
+              <Link href={`${MdPage}/${id}`}>
                 <p className={utilStyles.boldText}>{ title }</p>
               </Link>
               <small className={utilStyles.lightText}>{ date }</small>

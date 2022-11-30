@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import styles from './Navbar.module.sass'
 
 // todo delete
-import FooterMiku from './FooterMiku'
+import FooterMiku from './mikufooter'
 
 interface Props {
   children: ReactNode;
