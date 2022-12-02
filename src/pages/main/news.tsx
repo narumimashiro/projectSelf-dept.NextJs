@@ -72,7 +72,7 @@ const News = ( { postData }: Props ) => {
 News.getLayout = (News: ReactElement) => {
   return (
     <div>
-      <NavBar>
+      <NavBar chgLayout>
         { News }
       </NavBar>
       <MikuFooter />

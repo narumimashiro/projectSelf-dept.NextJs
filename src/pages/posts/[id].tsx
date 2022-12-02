@@ -12,7 +12,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context:GetStaticPropsContext<{ id:string }>) => {
-console.log(context.params!.id)
   const postData = await getPostsData(context.params!.id);
   return {
     props: {
