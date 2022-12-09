@@ -15,6 +15,5 @@ const sampleSlice = createSlice({
     },
   }
 })
-
-export const { ...reducers } = sampleSlice.actions
+export const sampleReducer = sampleSlice.actions
 export default sampleSlice.reducer

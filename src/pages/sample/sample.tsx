@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useDispatch, useSelector } from 'react-redux'
-import { reducers } from '@/redux/sample/sample.reducer'
+import { sampleReducer } from '@/redux/sample/sample.reducer'
 import { RootState } from '@/redux/store'
 import styles from '@/styles/sample/Sample.module.sass'
 
@@ -14,7 +14,7 @@ const Sample = () => {
       </Head>
       <div className={styles.main}>
         <h1>This is Sample Page</h1>
-        <button onClick={() => dispatch(reducers.dispMessage('Button Pushed!!!'))}>
+        <button onClick={() => dispatch(sampleReducer.dispMessage('Button Pushed!!!'))}>
           if you push button, the message below changes
         </button>
         <p>message : { message }</p>
