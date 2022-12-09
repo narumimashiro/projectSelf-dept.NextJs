@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import store from '@/redux/store'
 import '@/styles/globals.sass'
-import Navbar from '@/components/layouts/navbar'
+import NavBar from '@/components/layouts/navbar'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -25,9 +25,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <Provider store={ store }>
-      <Navbar>
+      <NavBar>
         <Component { ...pageProps } />
-      </Navbar>
+      </NavBar>
     </Provider>
   )
 }

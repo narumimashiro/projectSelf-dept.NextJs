@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { ReactNode } from "react";
-import styles from './Navbar.module.sass'
+import styles from './NavBar.module.sass'
 
 // todo delete
-import FooterMiku from './FooterMiku'
+import MikuFooter from './mikufooter'
 
 interface Props {
   children: ReactNode;
 }
 
-const Navbar = ({ children }: Props) => {
+const NavBar = ({ children }: Props) => {
   return (
     <>
       <nav className={styles.container}>
@@ -28,4 +28,4 @@ const Navbar = ({ children }: Props) => {
     </>
   )
 }
-export default Navbar;
+export default NavBar;

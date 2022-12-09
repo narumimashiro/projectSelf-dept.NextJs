@@ -1,3 +1,5 @@
+// Not using this file.
+
 import * as ModalTypes from './modal.types'
 
 export const dispMessage = (text: string) => {
