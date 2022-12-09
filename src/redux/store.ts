@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import modalReducer from './modal/modal.reducer'
+import sampleReducer from './sample/sample.reducer'
 
 export const store = configureStore({
   reducer: {
-    modal: modalReducer
+    sample: sampleReducer
   },
 })
 
