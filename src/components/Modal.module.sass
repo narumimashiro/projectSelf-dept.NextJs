@@ -1,14 +1,14 @@
 .modal-enter
   opacity: 0
 .modal-enter-active
-  transition: opacity 1s ease
+  transition: opacity .39s ease
   opacity: 1
 .modal-enter-done
   opacity: 1
 .modal-exit
   opacity: 1
 .modal-exit-active
-  transition: opacity 1s ease
+  transition: opacity .39s ease
   opacity: 0
 
 .modal-overlay
@@ -22,16 +22,15 @@
   width: 100%
   height: 100%
   background: rgba(0, 0, 0, 0.5)
-.modal-window
-  width: 390px
-  height: 260px
-.modal-content
-    width: 100%
-    height: 100%
-    background-color: #FFF
-    animation: zoom .39s ease
+
 @keyframes zoom
   from
     transform: scale(0.5)
   to
     transform: scale(1)
+.modal-content
+  width: 100%
+  height: 100%
+  text-align: center
+  background-color: #FFF
+  animation: zoom .39s linear

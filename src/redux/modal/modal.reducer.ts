@@ -4,29 +4,28 @@ import * as ModalType from './modal.types'
 
 const initialState = {
   isModalOpen: false,
-  disp_message: 'temp',
-  modal_style: {
-    width: 390,
-    height: 260,
-  },
+  modalInfo: {
+    title: '',
+    style: {
+      width: 390,
+      height: 260,
+    },
+  }
 } as ModalType.ModalState
 
 const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    openModal(state, action: PayloadAction) {
+    openModal(state, action: PayloadAction<ModalType.ModalInfo>) {
       state.isModalOpen = true
-      // state.
+      const payload = {...action.payload}
+      state.modalInfo.title = payload.title
+      state.modalInfo.style = payload.style! ? payload.style
+                                             : {width: 390, height: 260}
     },
     closeModal(state) {
       state.isModalOpen = false
-    },
-    dispMessage(state, action: PayloadAction<string>) {
-      state.disp_message = action.payload
-    },
-    modalWinSize(state, action: PayloadAction<ModalType.ModalStyle>) {
-      state.modal_style = action.payload
     },
   }
 })
