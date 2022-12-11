@@ -1,12 +1,16 @@
-TransitionStyle
-  // .modal-enter
-  //   opacity: 0
-  // .modal-enter-active
-  //   transition: opacity 1 0.3s
-  // .modal-exit
-  //   opacity: 1
-  // .modal-exit-active
-  //   transition: opacity 0 0.3s
+.modal-enter
+  opacity: 0
+.modal-enter-active
+  transition: opacity 1s ease
+  opacity: 1
+.modal-enter-done
+  opacity: 1
+.modal-exit
+  opacity: 1
+.modal-exit-active
+  transition: opacity 1s ease
+  opacity: 0
+
 .modal-overlay
   display: flex
   position: fixed
@@ -21,4 +25,13 @@ TransitionStyle
 .modal-window
   width: 390px
   height: 260px
-  background-color: #FFF
+.modal-content
+    width: 100%
+    height: 100%
+    background-color: #FFF
+    animation: zoom .39s ease
+@keyframes zoom
+  from
+    transform: scale(0.5)
+  to
+    transform: scale(1)
