@@ -3,6 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import * as ModalType from './modal.types'
 
 const initialState = {
+  isModalOpen: false,
   disp_message: 'temp',
   modal_style: {
     width: 390,
@@ -14,6 +15,13 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
+    openModal(state, action: PayloadAction) {
+      state.isModalOpen = true
+      // state.
+    },
+    closeModal(state) {
+      state.isModalOpen = false
+    },
     dispMessage(state, action: PayloadAction<string>) {
       state.disp_message = action.payload
     },
@@ -23,5 +31,5 @@ const modalSlice = createSlice({
   }
 })
 
-export const { ...reducers } = modalSlice.actions
+export const modalReducer = modalSlice.actions
 export default modalSlice.reducer
