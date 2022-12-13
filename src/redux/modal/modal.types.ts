@@ -1,6 +1,7 @@
 export interface ModalStyle {
   width: number,
   height: number,
+  fSize: number,
 }
 
 export interface ButtonItems {
@@ -18,14 +19,8 @@ export interface ModalState {
   isModalOpen: boolean,
   modalInfo: {
     title: string,
-    style: {
-      width: number,
-      height: number,
-    },
-    buttonItems:[{
-      btnTitle: string,
-      callback: () => void,
-    }],
+    style: ModalStyle
+    buttonItems: Array<ButtonItems>
   },
 }
 

@@ -10,6 +10,7 @@ const initialState = {
     style: {
       width: 390,
       height: 260,
+      fSize: 25,
     },
     buttonItems: [{
       btnTitle: '',
@@ -27,11 +28,9 @@ const modalSlice = createSlice({
       const payload = {...action.payload}
       state.modalInfo.title = payload.title
       state.modalInfo.style = payload.style! ? payload.style
-                                             : {width: 390, height: 260}
-      for (let i = 0; i < payload.buttonItems!.length; i++) {
-        state.modalInfo.buttonItems[i].btnTitle = payload.buttonItems![i].btnTitle
-        state.modalInfo.buttonItems[i].callback = payload.buttonItems![i].callback
-      }
+                                             : initialState.modalInfo.style
+      state.modalInfo.buttonItems = payload.buttonItems! ? payload.buttonItems.slice()
+                                                         : initialState.modalInfo.buttonItems
     },
     closeModal(state) {
       state.isModalOpen = false

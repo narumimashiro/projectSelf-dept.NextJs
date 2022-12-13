@@ -11,6 +11,10 @@
   transition: opacity .39s ease
   opacity: 0
 
+%fullWin
+  width: 100%
+  height: 100%
+
 .modal-overlay
   display: flex
   position: fixed
@@ -19,8 +23,7 @@
   z-index: 30
   left: 0
   top: 0
-  width: 100%
-  height: 100%
+  @extend %fullWin
   background: rgba(0, 0, 0, 0.5)
 
 @keyframes zoom
@@ -28,9 +31,29 @@
     transform: scale(0.5)
   to
     transform: scale(1)
+
 .modal-content
-  width: 100%
-  height: 100%
+  @extend %fullWin
   text-align: center
   background-color: #FFF
   animation: zoom .39s linear
+  header
+    display: flex
+    height: 15%
+    justify-content: center
+    span
+      font-weight: bold
+      @extend %fullWin
+  div
+    height: 70%
+  footer
+    height: 15%
+    text-align: right
+    padding-right: 5%
+    li
+      display: inline-block
+      margin-left: 10px
+      span
+        display: block
+        height: 100%
+        font-weight: bold

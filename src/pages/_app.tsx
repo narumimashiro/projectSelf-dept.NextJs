@@ -5,11 +5,8 @@ import { Provider } from 'react-redux'
 import store from '@/redux/store'
 import '@/styles/globals.sass'
 import NavBar from '@/components/layouts/navbar'
-
-// お試し
 import Modal from '@/components/modal'
-import { useSelector } from 'react-redux'
-//
+
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
