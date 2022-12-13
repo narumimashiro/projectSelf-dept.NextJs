@@ -3,12 +3,15 @@ export interface ModalStyle {
   height: number,
 }
 
+export interface ButtonItems {
+  btnTitle: string,
+  callback: () => void,
+}
+
 export type ModalInfo = {
   title: string,
-  style?: {
-    width: number,
-    height: number,
-  }
+  style?: ModalStyle,
+  buttonItems?: Array<ButtonItems>,
 }
 
 export interface ModalState {
@@ -19,7 +22,11 @@ export interface ModalState {
       width: number,
       height: number,
     },
-  }
+    buttonItems:[{
+      btnTitle: string,
+      callback: () => void,
+    }],
+  },
 }
 
 // ↓Not using from here↓

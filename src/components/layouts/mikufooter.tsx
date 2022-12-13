@@ -1,6 +1,6 @@
-import styles from './FooterMiku.module.sass'
+import styles from './MikuFooter.module.sass'
 
-const FooterMiku = () => {
+const MikuFooter = () => {
   return (
     <div>
       <div className={styles["footer-logo"]}>
@@ -20,4 +20,4 @@ const FooterMiku = () => {
   )
 }
 
-export default FooterMiku;
+export default MikuFooter;

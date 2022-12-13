@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import * as ModalType from './modal.types'
 
+
 const initialState = {
   isModalOpen: false,
   modalInfo: {
@@ -10,6 +11,10 @@ const initialState = {
       width: 390,
       height: 260,
     },
+    buttonItems: [{
+      btnTitle: '',
+      callback: Function.prototype,
+    }]
   }
 } as ModalType.ModalState
 
@@ -23,6 +28,10 @@ const modalSlice = createSlice({
       state.modalInfo.title = payload.title
       state.modalInfo.style = payload.style! ? payload.style
                                              : {width: 390, height: 260}
+      for (let i = 0; i < payload.buttonItems!.length; i++) {
+        state.modalInfo.buttonItems[i].btnTitle = payload.buttonItems![i].btnTitle
+        state.modalInfo.buttonItems[i].callback = payload.buttonItems![i].callback
+      }
     },
     closeModal(state) {
       state.isModalOpen = false
