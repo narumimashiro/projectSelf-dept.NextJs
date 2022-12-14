@@ -30,7 +30,7 @@ const modalSlice = createSlice({
       state.modalInfo.style = payload.style! ? payload.style
                                              : initialState.modalInfo.style
       state.modalInfo.buttonItems = payload.buttonItems! ? payload.buttonItems.slice()
-                                                         : initialState.modalInfo.buttonItems
+                                                         : initialState.modalInfo.buttonItems.slice()
     },
     closeModal(state) {
       state.isModalOpen = false

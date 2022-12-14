@@ -8,7 +8,7 @@ import { ButtonItems } from '@/redux/modal/modal.types'
 // *** How to use Modal Window ************************** //
 //
 // const openModal = () => {
-//   const modal_info = {
+//   const modalInfo = {
 //     title: 'This is sample modal',
 //     style: { //default // other recommended styles
 //       width: 390,      // 600, 900
@@ -20,7 +20,7 @@ import { ButtonItems } from '@/redux/modal/modal.types'
 //       callback: () => clickOk(),
 //     }]
 //   }
-//   dispatch(modalReducer.openModal(modal_info))
+//   dispatch(modalReducer.openModal(modalInfo))
 // }
 //
 // ****************************************************** //
@@ -29,9 +29,9 @@ interface Props {
   btnItems: Array<ButtonItems>
 }
 function ExecButton(props: Props) {
-  const execButton = props.btnItems.map((el: ButtonItems) =>
+  const execButton = props.btnItems.map((el) =>
     <li key={el.btnTitle}
-           onClick={ el.callback }
+        onClick={ el.callback }
     >
       <span>{ el.btnTitle }</span>
     </li>
@@ -44,7 +44,7 @@ function ExecButton(props: Props) {
 
 const Modal = () => {
   const isModalOpen = useSelector((state: RootState) => state.modal.isModalOpen)
-  const modal_info = useSelector((state: RootState) => state.modal.modalInfo)
+  const modalInfo = useSelector((state: RootState) => state.modal.modalInfo)
   const dispatch = useDispatch()
   
   const closeModal = () => {
@@ -53,7 +53,7 @@ const Modal = () => {
 
   return (
     <CSSTransition
-      in={isModalOpen}
+      in={ isModalOpen }
       timeout={390}
       unmountOnExit
       classNames={{
@@ -64,20 +64,20 @@ const Modal = () => {
         exitActive:  styles['modal-exit-active']
       }}>
       <div>
-        <div className={styles['modal-overlay']} onClick={closeModal}>
-          <div style={{width: modal_info.style.width + 'px', 
-                       height: modal_info.style.height + 'px',}}
+        <div className={styles['modal-overlay']} onClick={ closeModal }>
+          <div style={{width: modalInfo.style.width + 'px', 
+                       height: modalInfo.style.height + 'px',}}
                onClick={(event) => event.stopPropagation()}>
               <div className={styles['modal-content']}>
                 <header>
-                  <span style={{fontSize: modal_info.style.fSize + 'px'}}>
-                    { modal_info.title }
+                  <span style={{fontSize: modalInfo.style.fSize + 'px'}}>
+                    { modalInfo.title }
                   </span>
                 </header>
                 <div>use this area message board</div>
                 <footer>
                   <ExecButton
-                    btnItems={ modal_info.buttonItems } />
+                    btnItems={ modalInfo.buttonItems } />
                   <li onClick={ closeModal }>
                     <span>Close</span>
                   </li>

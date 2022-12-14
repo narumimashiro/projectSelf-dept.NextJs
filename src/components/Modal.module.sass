@@ -43,17 +43,18 @@
     justify-content: center
     span
       font-weight: bold
-      @extend %fullWin
   div
     height: 70%
   footer
+    display: flex
+    justify-content: end
+    align-items: center
     height: 15%
-    text-align: right
     padding-right: 5%
     li
-      display: inline-block
+      display: inline
       margin-left: 10px
       span
-        display: block
-        height: 100%
         font-weight: bold
+        &:hover
+          text-decoration: underline
