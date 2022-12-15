@@ -1,4 +1,4 @@
-import styles from './MikuFooter.module.sass'
+import styles from '@/styles/components/MikuFooter.module.sass'
 
 const MikuFooter = () => {
   return (

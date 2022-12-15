@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/redux/store'
 import { modalReducer } from '@/redux/modal/modal.reducer'
 import { CSSTransition } from 'react-transition-group'
-import styles from './Modal.module.sass'
+import styles from '@/styles/components/Modal.module.sass'
 import { ButtonItems } from '@/redux/modal/modal.types'
 
 // *** How to use Modal Window ************************** //
