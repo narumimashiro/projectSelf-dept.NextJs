@@ -2,9 +2,6 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import styles from '@/styles/components/NavBar.module.sass'
 
-// todo delete
-import MikuFooter from './mikufooter'
-
 interface Props {
   children: ReactNode;
 }
@@ -28,4 +25,4 @@ const NavBar = ({ children }: Props) => {
     </>
   )
 }
-export default NavBar;
+export default NavBar
