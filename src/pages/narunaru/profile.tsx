@@ -1,20 +1,20 @@
 import Head from 'next/head'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { modalReducer } from '@/redux/modal/modal.reducer'
-import { RootState } from '@/redux/store'
 
-const profile = () => {
+const Profile = () => {
   const dispatch = useDispatch()
 
   const openModal = () => {
-    const modal_info = {
-      title: 'profile modal',
+    const modalInfo = {
+      title: 'This is sample modal',
       style: {
-        width: 600,
-        height: 400
-      }
+        width: 390,
+        height: 260,
+        fSize: 25,
+      },
     }
-    dispatch(modalReducer.openModal(modal_info))
+    dispatch(modalReducer.openModal(modalInfo))
   }
   return (
     <div>
@@ -27,4 +27,4 @@ const profile = () => {
     </div>
   )
 }
-export default profile
+export default Profile
