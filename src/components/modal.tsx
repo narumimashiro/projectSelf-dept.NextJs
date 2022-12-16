@@ -31,9 +31,9 @@ interface Props {
 function ExecButton(props: Props) {
   const execButton = props.btnItems.map((el) =>
     <li key={el.btnTitle}
-        onClick={ el.callback }
+        onClick={el.callback}
     >
-      <span>{ el.btnTitle }</span>
+      <span>{el.btnTitle}</span>
     </li>
   )
 
@@ -53,7 +53,7 @@ const Modal = () => {
 
   return (
     <CSSTransition
-      in={ isModalOpen }
+      in={isModalOpen}
       timeout={390}
       unmountOnExit
       classNames={{
@@ -64,21 +64,21 @@ const Modal = () => {
         exitActive:  styles['modal-exit-active']
       }}>
       <div>
-        <div className={styles['modal-overlay']} onClick={ closeModal }>
+        <div className={styles['modal-overlay']} onClick={closeModal}>
           <div style={{width: modalInfo.style.width + 'px', 
                        height: modalInfo.style.height + 'px',}}
                onClick={(event) => event.stopPropagation()}>
               <div className={styles['modal-content']}>
                 <header>
                   <span style={{fontSize: modalInfo.style.fSize + 'px'}}>
-                    { modalInfo.title }
+                    {modalInfo.title}
                   </span>
                 </header>
                 <div>use this area message board</div>
                 <footer>
                   <ExecButton
-                    btnItems={ modalInfo.buttonItems } />
-                  <li onClick={ closeModal }>
+                    btnItems={modalInfo.buttonItems} />
+                  <li onClick={closeModal}>
                     <span>Close</span>
                   </li>
                 </footer>

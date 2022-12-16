@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-export interface BlogProps {
+export interface BlogInfo {
   readonly article: string,
   readonly title: string,
   readonly date: string,
@@ -25,7 +25,7 @@ const getAllArticleId = () => {
 
 const getAllArticleInfo = () => {
   const blogList = fs.readdirSync(blogDirectory)
-  const articleDataList = Array<BlogProps>(blogList.length)
+  let articleDataList = new Array<BlogInfo>(blogList.length)
 
   blogList.forEach((el, index) => {
     const article = el.replace(/\.md$/, '')
@@ -41,13 +41,27 @@ const getAllArticleInfo = () => {
       content  : content,
     }
   })
-
+  sortBlogList(articleDataList)
+  
   return articleDataList
 }
 
 const getArticleData = (id: string) => {
   const articleList = getAllArticleInfo()
   return articleList.find(el => el.article === id)
+}
+
+export const sortBlogList = (blogList: Array<BlogInfo>) => {
+  const blgLen = blogList.length
+  for(let i = 0; i < blgLen; i++) {
+    for(let j = blgLen - 1; i < j; j--) {
+      if(blogList[j].date > blogList[j - 1].date) {
+        let tmp = blogList[j]
+        blogList[j] = blogList[j - 1]
+        blogList[j - 1] = tmp
+      }
+    }
+  }
 }
 
 export { getAllArticleId, getAllArticleInfo, getArticleData }

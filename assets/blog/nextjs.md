@@ -1,6 +1,6 @@
 ---
 title: 'About NextJs'
-date: '20230430'
+date: '20230107'
 thumbnail: '/images/HatsuneMikuVivid.jpg'
 ---
 

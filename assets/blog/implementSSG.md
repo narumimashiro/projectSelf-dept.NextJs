@@ -1,6 +1,6 @@
 ---
 title: 'SSG/SSR NextJs'
-date: '20221125'
+date: '20230219'
 thumbnail: '/images/HatsuneMikuLeoNeed.jpg'
 ---
 

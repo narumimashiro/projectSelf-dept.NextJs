@@ -1,6 +1,6 @@
 ---
 title: 'About Vuex'
-date: '20221226'
+date: '20231225'
 thumbnail: '/images/HatsuneMikuVsing.jpg'
 ---
 

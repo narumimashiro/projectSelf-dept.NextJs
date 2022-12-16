@@ -1,6 +1,6 @@
 ---
 title: 'About CSS Posi'
-date: '20230630'
+date: '20221123'
 thumbnail: '/images/HatsuneMikuMoreMore.jpg'
 ---
 

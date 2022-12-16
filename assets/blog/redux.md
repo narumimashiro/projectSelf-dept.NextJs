@@ -1,6 +1,6 @@
 ---
 title: 'About Redux'
-date: '20221225'
+date: '20231226'
 thumbnail: '/images/HatsuneMikuAtNightCode.jpg'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 'About Python Func'
-date: '20221215'
+date: '20220805'
 thumbnail: '/images/HatsuneMikuDashow.jpg'
 ---
 
