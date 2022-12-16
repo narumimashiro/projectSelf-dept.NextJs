@@ -1,8 +1,8 @@
-import fs from 'fs'
 import path from 'path'
+import fs from 'fs'
 import matter from 'gray-matter'
 
-export interface BlogInfo {
+interface BlogInfo {
   readonly article: string,
   readonly title: string,
   readonly date: string,
@@ -46,9 +46,20 @@ const getAllArticleInfo = () => {
   return articleDataList
 }
 
-const getArticleData = (id: string) => {
-  const articleList = getAllArticleInfo()
-  return articleList.find(el => el.article === id)
+const getArticleData = (slug: string) => {
+  const fullPath = path.join(blogDirectory, `${slug}.md`)
+  const blogData = fs.readFileSync(fullPath, 'utf-8')
+  const { data, content } = matter(blogData)
+
+  const articleData: BlogInfo = {
+    article  : slug,
+    title    : data.title,
+    date     : data.date,
+    thumbnail: data.thumbnail,
+    content  : content,
+  }
+
+  return articleData
 }
 
 export const sortBlogList = (blogList: Array<BlogInfo>) => {
