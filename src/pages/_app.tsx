@@ -17,5 +17,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     return Component.getLayout(<Component { ...pageProps } />);
   }
 
-  return <Navbar><Component {...pageProps} /></Navbar>
+  return (
+    <Navbar chgLayout={false}>
+      <Component {...pageProps} />
+    </Navbar>
+  ) 
 }
