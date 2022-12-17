@@ -1,0 +1,23 @@
+%paragraph
+  margin-top: 50px
+
+@mixin articleHeader($fSize: 2em)
+  font-size: $fSize
+  @extend %paragraph
+
+.markdown
+  width: 50vw
+  margin: 50px auto auto auto
+
+  h1
+    @include articleHeader(3.9em)
+    text-align: center
+  h2
+    @include articleHeader()
+  h3
+    @include articleHeader(1.5em)
+  strong
+    padding: 0 10px 0 10px
+    background-image: linear-gradient(transparent 80%, #8effff)
+  a:hover
+    text-decoration: underline

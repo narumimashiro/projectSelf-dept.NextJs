@@ -19,7 +19,7 @@ const Profile = () => {
   return (
     <div>
       <Head>
-        <title>Next/React | Profile</title>
+        <title>Profile | Next/React</title>
       </Head>
       <h1>This is Profile Page</h1>
       <button style={{width: '20px', height:'20px'}}
