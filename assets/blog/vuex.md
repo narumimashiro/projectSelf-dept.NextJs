@@ -8,8 +8,8 @@ thumbnail: '/images/HatsuneMikuVsing.jpg'
 
 ## **ディレクトリ構成**
 state, actions, getters, mutationsをモジュール化したVuexをTypeScript化  
-※ **`node_module/vuex/types/index.d.ts`** に型定義が書いてある
-```
+※node_module/vuex/types/index.d.tsに型定義が書いてある
+```Text
 src―――store
        |―store.ts
        |―types.ts

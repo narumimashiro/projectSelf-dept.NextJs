@@ -9,7 +9,7 @@ thumbnail: '/images/HatsuneMikuAtNightCode.jpg'
 ## **ディレクトリ構成**
 Component思考が強いから(?)Vuexとは違って、特定のComponent用にReduxを用意する  
 この記事はモーダルウィンドウ用に作ったReduxをもとに記述している
-```
+```Text
 src―――redux
        |―store.ts
        |―modal

@@ -1,7 +1,10 @@
 
 import Head from 'next/head'
-import { getAllArticleId, getArticleData } from '@/pages/lib/postblog'
+import ReactMarkdown from 'react-markdown'
+import { getAllArticleId, getArticleData } from '@/lib/postblog'
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
+import styles from '@/styles/pages/BlogArticle.module.sass'
+import CodeBlock from '@/components/codeblock'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllArticleId()
@@ -22,11 +25,21 @@ export const getStaticProps = async (context: GetStaticPropsContext<{article: st
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const Article = ({articleData}: Props) => {
+const BlogArticle = ({articleData}: Props) => {
   return (
     <div>
-      {articleData.content}
+      <Head>
+        <title>Blog | {articleData.title}</title>
+        <meta name='discription' content='This page for writing down what learned self learning' />
+      </Head>
+      <ReactMarkdown 
+        className={styles.markdown}
+        children={articleData.content}
+        components={{
+          code: CodeBlock
+        }}
+      />
     </div>
   )
 }
-export default Article
+export default BlogArticle

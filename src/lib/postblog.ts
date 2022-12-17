@@ -25,7 +25,7 @@ const getAllArticleId = () => {
 
 const getAllArticleInfo = () => {
   const blogList = fs.readdirSync(blogDirectory)
-  let articleDataList = new Array<BlogInfo>(blogList.length)
+  let articleDataList = Array<BlogInfo>(blogList.length - 1)
 
   blogList.forEach((el, index) => {
     const article = el.replace(/\.md$/, '')
