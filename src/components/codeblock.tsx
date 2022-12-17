@@ -3,9 +3,6 @@ import { dark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { CodeComponent } from 'react-markdown/lib/ast-to-react'
 
 const CodeBlock: CodeComponent = ({ inline, className, children }) => {
-  if (inline) {
-    return <code className={className}>{children}</code>;
-  }
   const match = /language-(\w+)/.exec(className || '');
   return !inline && match ? (
     <SyntaxHighlighter

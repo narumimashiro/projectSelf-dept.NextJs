@@ -7,7 +7,7 @@ thumbnail: '/images/HatsuneMikuLeoNeed.jpg'
 # ***SSGの実装***
 
 ## **ディレクトリ構成**
-```
+```Text
 src―――lib
     |  |―post.ts // ファイルをやり取りをする
     |

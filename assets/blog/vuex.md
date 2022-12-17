@@ -74,7 +74,7 @@ import { RootState } from '../types'
 import { ReduxState } from './types'
 
 export const state: ReduxState = {
-  loading: false, // sample code for loading
+  loading: false, /* sample code for loading */
 }
 
 const namespaced = true
@@ -104,7 +104,7 @@ export interface Module<S, R> {
 型定義をしていく
 ```ts
 export interface ReduxState {
-  loading: boolean,  // sample code for loading
+  loading: boolean,  /* sample code for loading */
 }
 ```
 
@@ -112,7 +112,6 @@ export interface ReduxState {
 ```ts
 import { ActionTree } from 'vuex'
 import { RootState } from '../types'
-// import axios from 'axios'
 import { ReduxState, } from './types'
 
 export const actions: ActionTree<ReduxState, RootState> = {
@@ -149,7 +148,7 @@ import { MutationTree } from 'vuex'
 import { ReduxState } from './types'
 
 export const mutations: MutationTree<ReduxState> = {
-  // sample code for loading
+  /* sample code for loading */
   setLoading(state, payload: boolean) {
     state.loading = payload
   }
@@ -163,7 +162,7 @@ export interface MutationTree<S> {
 }
 ```
 
-### Componentでの使い方
+### **Componentでの使い方**
 'モジュール名/getter関数' を指定して呼び出す
 ```ts
 this.$store.getters['Redux/getLoading']

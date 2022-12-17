@@ -4,10 +4,10 @@ date: '20220805'
 thumbnail: '/images/HatsuneMikuDashow.jpg'
 ---
 
-# ***Function Library***
+# ***Python Function***
 ## **関数に関連する知識まとめ**
 
-### 関数内容の説明文記述について
+### **関数内容の説明文記述について**
 ```python
 def func(param1, param2):
     """Example Function
