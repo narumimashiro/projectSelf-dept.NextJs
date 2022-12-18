@@ -41,9 +41,7 @@ const Sakura = () => {
               "width":0,
             },
             "image":{
-              // TODO path change
-              "src": "http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-6/img/flower.png",
-              // "src": "public/images/sakura.png",
+              "src": "/images/sakura.png",
               "width":32,
               "height":32
             }
