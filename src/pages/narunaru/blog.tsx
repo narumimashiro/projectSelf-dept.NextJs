@@ -5,6 +5,7 @@ import type { ReactElement } from 'react'
 import { getAllArticleInfo } from '@/lib/postblog'
 import NavBar from '@/components/layouts/navbar'
 import MikuFooter from '@/components/layouts/mikufooter'
+import Sakura from '@/components/layouts/sakura'
 import styles from '@/styles/pages/Blog.module.sass'
 import utilStyles from '@/styles/utility.module.sass'
 
@@ -36,6 +37,7 @@ const Blog = ({ articleDataList }: Props) => {
         <title>Blog | Next/React</title>
         <meta name='discription' content='SSG Narumi Blog Page created by NextJs' />
       </Head>
+      <Sakura/>
       <section className={styles['blog-header']}>
         <p className={utilStyles['header-title']}>BLOG</p>
         <p className={utilStyles['content-20px']}>
