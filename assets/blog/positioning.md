@@ -50,6 +50,7 @@ NG例
 ```
 上記だとspanがインライン要素であることで条件1つ目は満たしているが、2つ目の方が達成できていないため、中央に寄らない
 
+ex)
 OK例
 ```html
 <p {text-align: center;}><span>sample</span></p>
