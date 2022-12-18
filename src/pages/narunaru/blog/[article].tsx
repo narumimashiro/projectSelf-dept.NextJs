@@ -32,7 +32,7 @@ const BlogArticle = ({articleData}: Props) => {
         <title>Blog | {articleData.title}</title>
         <meta name='discription' content='This page for writing down what learned self learning' />
       </Head>
-      <ReactMarkdown 
+      <ReactMarkdown
         className={styles.markdown}
         children={articleData.content}
         components={{
