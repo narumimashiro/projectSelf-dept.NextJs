@@ -15,8 +15,8 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to My Site
         </h1>
-        <h2>
-          This page is created using NextJs + TypeScript
+        <h2 className={styles['sub-title']}>
+          This page is created using <span>NextJs</span> + <span>TypeScript</span>
         </h2>
       </main>
     </div>
