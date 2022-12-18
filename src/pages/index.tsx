@@ -16,7 +16,7 @@ export default function Home() {
           Welcome to My Site
         </h1>
         <h2>
-          This page created using NextJs + TypeScript
+          This page is created using NextJs + TypeScript
         </h2>
       </main>
     </div>
