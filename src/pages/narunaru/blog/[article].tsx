@@ -5,6 +5,7 @@ import { getAllArticleId, getArticleData } from '@/lib/postblog'
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
 import styles from '@/styles/pages/BlogArticle.module.sass'
 import CodeBlock from '@/components/codeblock'
+import Sakura from '@/components/layouts/sakura'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllArticleId()
