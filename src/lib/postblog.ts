@@ -63,9 +63,9 @@ const getArticleData = (slug: string) => {
 }
 
 export const sortBlogList = (blogList: Array<BlogInfo>) => {
-  const blgLen = blogList.length
+  const blgLen = blogList.length - 1
   for(let i = 0; i < blgLen; i++) {
-    for(let j = blgLen - 1; i < j; j--) {
+    for(let j = blgLen; i < j; j--) {
       if(blogList[j].date > blogList[j - 1].date) {
         let tmp = blogList[j]
         blogList[j] = blogList[j - 1]

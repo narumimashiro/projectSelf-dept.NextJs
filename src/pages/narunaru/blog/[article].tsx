@@ -5,6 +5,7 @@ import { getAllArticleId, getArticleData } from '@/lib/postblog'
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
 import styles from '@/styles/pages/BlogArticle.module.sass'
 import CodeBlock from '@/components/codeblock'
+import Sakura from '@/components/layouts/sakura'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllArticleId()
@@ -32,6 +33,7 @@ const BlogArticle = ({articleData}: Props) => {
         <title>Blog | {articleData.title}</title>
         <meta name='discription' content='This page for writing down what learned self learning' />
       </Head>
+      <Sakura/>
       <ReactMarkdown 
         className={styles.markdown}
         children={articleData.content}
