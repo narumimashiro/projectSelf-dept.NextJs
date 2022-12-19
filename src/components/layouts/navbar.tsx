@@ -9,9 +9,12 @@ interface Props {
 const NavBar = ({ children }: Props) => {
   return (
     <>
-      <nav className={styles.container}>
+      <nav className={styles.navbar}>
         <div className={styles["to-top"]}>
-          <Link href="/">Top</Link>
+          <Link href="/">
+            <img src="/images/projectSelf.png"
+                 alt="projectSelf"/>
+          </Link>
         </div>
         <div className={styles["nav-cont"]}>
           <li><Link href="/narunaru/profile">Profile</Link></li>

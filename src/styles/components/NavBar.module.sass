@@ -1,41 +1,32 @@
-@mixin sel-list($color: #000)
-  color : $color
-
 %list-style
+  color: #460e44
   font-size: 2em
   font-family: "Cambria"
   font-style: italic
-  text-shadow: 2px 2px #302833
+  font-weight: bold
 
-.container
-  padding: 0 2rem
-  background-color: transparent
-  position: relative
-  z-index: 20
-  li
-    @extend %list-style
-    display: inline
-    padding-left: 2ex
-  li:nth-of-type(1)
-    @include sel-list(#99ffff)
-  li:nth-of-type(2)
-    @include sel-list(#99ff99)
-  li:nth-of-type(3)
-    @include sel-list(#ccff99)
-  li:nth-of-type(4)
-    @include sel-list(#ffff99)
-  li:nth-of-type(5)
-    @include sel-list(#ffcc99)
+.navbar
+  display: flex
+  position: absolute
+  width: 100%
+  height: 70px
+  background: #FDEEEF
+  justify-content: space-between
+  top: 0
+  left: 0
+  z-index: 20  // TODO Delete
   a:hover
     text-decoration: underline
-    text-decoration-color: #302833
-    text-decoration-thickness: .39px
 
 .to-top
-  @extend %list-style
-  text-align: left
-  float: left
-  @include sel-list(#ff99ff)
+  img
+    height: 100%
 
 .nav-cont
-  text-align: right
+  display: flex
+  padding-right: 20px
+  li
+    display: inline
+    @extend %list-style
+    padding-left: 2ex
+    margin: auto

@@ -56,6 +56,7 @@ const Modal = () => {
       in={isModalOpen}
       timeout={390}
       unmountOnExit
+      styles={{zIndex: 20}}
       classNames={{
         enter:       styles['modal-enter'],
         enterActive: styles['modal-enter-active'],
