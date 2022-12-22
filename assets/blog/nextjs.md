@@ -1,7 +1,7 @@
 ---
 title: 'About NextJs'
 date: '20230107'
-thumbnail: '/images/HatsuneMikuVivid.jpg'
+thumbnail: '/images/NextJs.jpg'
 ---
 
 # ***NextJsの基礎***

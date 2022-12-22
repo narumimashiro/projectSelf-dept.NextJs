@@ -1,7 +1,7 @@
 ---
 title: 'About Redux'
 date: '20231226'
-thumbnail: '/images/HatsuneMikuAtNightCode.jpg'
+thumbnail: '/images/NextJs.jpg'
 ---
 
 # ***Redux Library***
@@ -66,7 +66,8 @@ const initialState = {
     buttonItems: [{
       btnTitle: '',
       callback: Function.prototype,
-    }]
+    }],
+    component: '',
   }
 } as ModalType.ModalState
 
@@ -82,6 +83,7 @@ const modalSlice = createSlice({
                                              : initialState.modalInfo.style
       state.modalInfo.buttonItems = payload.buttonItems! ? payload.buttonItems.slice()
                                                          : initialState.modalInfo.buttonItems.slice()
+      state.modalInfo.component = payload.component
     },
     closeModal(state) {
       state.isModalOpen = false
@@ -110,14 +112,16 @@ export type ModalInfo = {
   title: string,
   style?: ModalStyle,
   buttonItems?: Array<ButtonItems>,
+  component: string,
 }
 
 export interface ModalState {
   isModalOpen: boolean,
   modalInfo: {
     title: string,
-    style: ModalStyle
-    buttonItems: Array<ButtonItems>
+    style: ModalStyle,
+    buttonItems: Array<ButtonItems>,
+    component: string,
   },
 }
 ```
@@ -150,6 +154,9 @@ import { CSSTransition } from 'react-transition-group'
 import styles from '@/styles/components/Modal.module.sass'
 import { ButtonItems } from '@/redux/modal/modal.types'
 
+// ViewComponent
+import ComingSoon from './comingsoon'
+
 // *** How to use Modal Window ************************** //
 //
 // const openModal = () => {
@@ -163,22 +170,42 @@ import { ButtonItems } from '@/redux/modal/modal.types'
 //     buttonItems:[{
 //       btnTitle: 'OK',
 //       callback: () => clickOk(),
-//     }]
+//     }],
+//     component: 'comingsoon'
 //   }
 //   dispatch(modalReducer.openModal(modalInfo))
 // }
 //
 // ****************************************************** //
 
-interface Props {
-  btnItems: Array<ButtonItems>
+interface CompProps {
+  childComp: string
 }
-function ExecButton(props: Props) {
+
+function ViewComponent(props: CompProps) {
+
+  switch(props.childComp) {
+  case 'commingsoon':
+    return <ComingSoon/>
+  default:
+    console.log('Error, not found component')
+    return <></>
+  }
+}
+
+interface BtnProps {
+  btnItems: Array<ButtonItems>,
+  btnFont: number,
+}
+function ExecButton(props: BtnProps) {
   const execButton = props.btnItems.map((el) =>
     <li key={el.btnTitle}
+        className="inline ml-3 list-none"
         onClick={el.callback}
     >
-      <span>{el.btnTitle}</span>
+      <span style={{fontSize: props.btnFont / 2 + 'px'}}>
+        {el.btnTitle}
+      </span>
     </li>
   )
 
@@ -201,6 +228,7 @@ const Modal = () => {
       in={isModalOpen}
       timeout={390}
       unmountOnExit
+      styles={{zIndex: 20}}
       classNames={{
         enter:       styles['modal-enter'],
         enterActive: styles['modal-enter-active'],
@@ -214,17 +242,24 @@ const Modal = () => {
                        height: modalInfo.style.height + 'px',}}
                onClick={(event) => event.stopPropagation()}>
               <div className={styles['modal-content']}>
-                <header>
-                  <span style={{fontSize: modalInfo.style.fSize + 'px'}}>
+                <header className="flex h-1/6 justify-center">
+                  <span className="font-bold"
+                        style={{fontSize: modalInfo.style.fSize + 'px'}}>
                     {modalInfo.title}
                   </span>
                 </header>
-                <div>use this area message board</div>
-                <footer>
+                <div className="h-2/3">
+                  <ViewComponent
+                    childComp={modalInfo.component} />
+                </div>
+                <footer className="flex h-1/6 items-center justify-end">
                   <ExecButton
-                    btnItems={modalInfo.buttonItems} />
-                  <li onClick={closeModal}>
-                    <span>Close</span>
+                    btnItems={modalInfo.buttonItems}
+                    btnFont={modalInfo.style.fSize} />
+                  <li className="inline ml-3 list-none"
+                      onClick={closeModal}>
+                    <span className="font-bold hover:underline"
+                          style={{fontSize: modalInfo.style.fSize / 2 + 'px'}}>Close</span>
                   </li>
                 </footer>
               </div>

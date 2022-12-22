@@ -15,7 +15,8 @@ const initialState = {
     buttonItems: [{
       btnTitle: '',
       callback: Function.prototype,
-    }]
+    }],
+    component: '',
   }
 } as ModalType.ModalState
 
@@ -31,6 +32,7 @@ const modalSlice = createSlice({
                                              : initialState.modalInfo.style
       state.modalInfo.buttonItems = payload.buttonItems! ? payload.buttonItems.slice()
                                                          : initialState.modalInfo.buttonItems.slice()
+      state.modalInfo.component = payload.component
     },
     closeModal(state) {
       state.isModalOpen = false

@@ -4,11 +4,10 @@
 
 html
   @extend %main
-  background: #fdeeef
+  background: #FFF
 
 body
   @extend %main
-  margin: 8px
 
 a
   color: inherit
@@ -22,3 +21,7 @@ a
     color-scheme: dark
   body
     color: #502c2c
+
+@import "~tailwindcss/base"
+@import "~tailwindcss/components"
+@tailwind utilities

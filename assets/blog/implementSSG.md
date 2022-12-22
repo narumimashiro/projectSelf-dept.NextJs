@@ -1,7 +1,7 @@
 ---
 title: 'SSG/SSR NextJs'
 date: '20230219'
-thumbnail: '/images/HatsuneMikuLeoNeed.jpg'
+thumbnail: '/images/NextJs.jpg'
 ---
 
 # ***SSGの実装***
@@ -9,7 +9,7 @@ thumbnail: '/images/HatsuneMikuLeoNeed.jpg'
 ## **ディレクトリ構成**
 ```Text
 src―――lib
-    |  |―post.ts // ファイルをやり取りをする
+    |  |―postblog.ts // ファイルをやり取りをする
     |
     |―pages
        |―main
@@ -19,7 +19,7 @@ src―――lib
           |―[id].tsx // 任意のページに対して行う
 ```
 
-## **post.ts** 
+## **postblog.ts** 
 
 ファイルを読み込んだりとデータを扱う役割
 
@@ -38,7 +38,7 @@ interface BlogInfo {
 
 const blogDirectory = path.join(process.cwd(), 'assets/blog')
 
-const getAllArticleId = () => {
+const getAllArticleId = async () => {
   const blogList = fs.readdirSync(blogDirectory)
   return blogList.map(el => {
     return {
@@ -49,9 +49,9 @@ const getAllArticleId = () => {
   })
 }
 
-const getAllArticleInfo = () => {
+const getAllArticleInfo = async () => {
   const blogList = fs.readdirSync(blogDirectory)
-  let articleDataList = Array<BlogInfo>(blogList.length - 1)
+  let articleDataList = Array<BlogInfo>(blogList.length)
 
   blogList.forEach((el, index) => {
     const article = el.replace(/\.md$/, '')
@@ -72,7 +72,7 @@ const getAllArticleInfo = () => {
   return articleDataList
 }
 
-const getArticleData = (slug: string) => {
+const getArticleData = async (slug: string) => {
   const fullPath = path.join(blogDirectory, `${slug}.md`)
   const blogData = fs.readFileSync(fullPath, 'utf-8')
   const { data, content } = matter(blogData)
@@ -122,7 +122,7 @@ import utilStyles from '@/styles/utility.module.sass'
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 export const getStaticProps = async () => {
-  const articleDataList = getAllArticleInfo()
+  const articleDataList = await getAllArticleInfo()
 
   return {
     props: {
@@ -142,20 +142,20 @@ const Blog = ({ articleDataList }: Props) => {
   }
 
   return (
-    <div>
+    <div className="mt-28">
       <Head>
         <title>Blog | Next/React</title>
         <meta name='discription' content='SSG Narumi Blog Page created by NextJs' />
       </Head>
       <Sakura/>
-      <section className={styles['blog-header']}>
-        <p className={utilStyles['header-title']}>BLOG</p>
-        <p className={utilStyles['content-20px']}>
+      <section className="text-center mb-12">
+        <p className="text-8xl font-bold underline decoration-4">BLOG</p>
+        <p className="text-xl italic pt-4">
           This page is for my blog and writing down what learned self learning<br/>
           I'm sorry, if I made a mistake... pls go easy on me...
         </p>
       </section>
-      <section className={styles['blog-body']}>
+      <section className="mb-12">
         <div className={styles.grid}>
           {articleDataList.map(el =>
             <article key={el.article}>
@@ -164,9 +164,9 @@ const Blog = ({ articleDataList }: Props) => {
                      alt={el.thumbnail} />
               </Link>
               <Link href={'./blog/'+`${el.article}`}>
-                <p className={utilStyles['content-title']}>{el.title}</p>
+                <p className="text-2xl font-bold pt-4 hover:underline">{el.title}</p>
               </Link>
-              <small className={utilStyles['light-style']}>{editDate(el.date)}</small>
+              <small className="text-base text-gray-400">{editDate(el.date)}</small>
             </article>
           )}
         </div>
@@ -201,7 +201,7 @@ import CodeBlock from '@/components/codeblock'
 import Sakura from '@/components/layouts/sakura'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllArticleId()
+  const paths = await getAllArticleId()
   return {
     paths,
     fallback: false,
@@ -209,7 +209,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context: GetStaticPropsContext<{article: string}>) => {
-  const articleData = getArticleData(context.params!.article)
+  const articleData = await getArticleData(context.params!.article)
   return {
     props: {
       articleData,

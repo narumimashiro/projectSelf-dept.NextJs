@@ -12,7 +12,7 @@ interface BlogInfo {
 
 const blogDirectory = path.join(process.cwd(), 'assets/blog')
 
-const getAllArticleId = () => {
+const getAllArticleId = async () => {
   const blogList = fs.readdirSync(blogDirectory)
   return blogList.map(el => {
     return {
@@ -23,9 +23,9 @@ const getAllArticleId = () => {
   })
 }
 
-const getAllArticleInfo = () => {
+const getAllArticleInfo = async () => {
   const blogList = fs.readdirSync(blogDirectory)
-  let articleDataList = Array<BlogInfo>(blogList.length - 1)
+  let articleDataList = Array<BlogInfo>(blogList.length)
 
   blogList.forEach((el, index) => {
     const article = el.replace(/\.md$/, '')
@@ -46,7 +46,7 @@ const getAllArticleInfo = () => {
   return articleDataList
 }
 
-const getArticleData = (slug: string) => {
+const getArticleData = async (slug: string) => {
   const fullPath = path.join(blogDirectory, `${slug}.md`)
   const blogData = fs.readFileSync(fullPath, 'utf-8')
   const { data, content } = matter(blogData)
