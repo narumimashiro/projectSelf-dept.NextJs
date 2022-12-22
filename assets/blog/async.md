@@ -14,9 +14,10 @@ thumbnail: '/images/HatsuneMikuLeoNeed.jpg'
 
 ## **初期非同期処理**
 
-非同期処理と言ったら’Promise’や’aync/await’を思い浮かべるが、それらは「ES2015(ES6)」で追加された機能であり、2015年以前は非同期処理はコールバック関数で実現していた。
+非同期処理と言ったら’Promise’や’aync/await’を思い浮かべるが、それらは「ES2015(ES6)」で追加された機能であり、2015年以前は非同期処理はコールバック関数で実現していた。  
 
-例) setTimeout()
+例) setTimeout()  
+
 ```ts
 setTimeout(() => console.log('First'), 1000)
 console.log('Second')
@@ -29,6 +30,7 @@ First
 しかしバックグラウンド処理が増えるとソースコードの記述がとても複雑になっていき、「**コールバック地獄**」と呼ばれることとなった。
 
 例)コールバック地獄
+
 ```ts
 type Callback<T> = (result: T) => void
 
