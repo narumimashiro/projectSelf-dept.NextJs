@@ -12,7 +12,7 @@ import utilStyles from '@/styles/utility.module.sass'
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 export const getStaticProps = async () => {
-  const articleDataList = getAllArticleInfo()
+  const articleDataList = await getAllArticleInfo()
 
   return {
     props: {

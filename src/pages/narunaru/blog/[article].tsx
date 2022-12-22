@@ -8,7 +8,7 @@ import CodeBlock from '@/components/codeblock'
 import Sakura from '@/components/layouts/sakura'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllArticleId()
+  const paths = await getAllArticleId()
   return {
     paths,
     fallback: false,
@@ -16,7 +16,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context: GetStaticPropsContext<{article: string}>) => {
-  const articleData = getArticleData(context.params!.article)
+  const articleData = await getArticleData(context.params!.article)
   return {
     props: {
       articleData,

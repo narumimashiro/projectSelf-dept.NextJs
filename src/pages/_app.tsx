@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import store from '@/redux/store'
 import '@/styles/globals.sass'
 import NavBar from '@/components/layouts/navbar'
-import Modal from '@/components/modal'
+import Modal from '@/components/modal/modal'
 
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
