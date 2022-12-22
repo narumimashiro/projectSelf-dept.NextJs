@@ -13,14 +13,16 @@ export type ModalInfo = {
   title: string,
   style?: ModalStyle,
   buttonItems?: Array<ButtonItems>,
+  component: string,
 }
 
 export interface ModalState {
   isModalOpen: boolean,
   modalInfo: {
     title: string,
-    style: ModalStyle
-    buttonItems: Array<ButtonItems>
+    style: ModalStyle,
+    buttonItems: Array<ButtonItems>,
+    component: string,
   },
 }
 

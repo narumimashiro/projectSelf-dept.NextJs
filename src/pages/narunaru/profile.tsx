@@ -14,6 +14,7 @@ const Profile = () => {
         height: 600,
         fSize: 50,
       },
+      component: 'commingsoon'
     }
     dispatch(modalReducer.openModal(modalInfo))
   }, [])
