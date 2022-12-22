@@ -19,6 +19,7 @@ const Geometric = () => {
       id='tsparticles'
       init={particlesInit}
       loaded={particlesLoaded}
+      className="w-full h-full"
       options={{
         "fullScreen": {
           enable: false,
