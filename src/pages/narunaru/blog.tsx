@@ -38,14 +38,14 @@ const Blog = ({ articleDataList }: Props) => {
         <meta name='discription' content='SSG Narumi Blog Page created by NextJs' />
       </Head>
       <Sakura/>
-      <section className={styles['blog-header']}>
+      <section className="text-center mb-12">
         <p className="text-8xl font-bold underline decoration-4">BLOG</p>
         <p className="text-xl italic pt-4">
           This page is for my blog and writing down what learned self learning<br/>
           I'm sorry, if I made a mistake... pls go easy on me...
         </p>
       </section>
-      <section className={styles['blog-body']}>
+      <section className="mb-12">
         <div className={styles.grid}>
           {articleDataList.map(el =>
             <article key={el.article}>
@@ -54,7 +54,7 @@ const Blog = ({ articleDataList }: Props) => {
                      alt={el.thumbnail} />
               </Link>
               <Link href={'./blog/'+`${el.article}`}>
-                <p className="text-2xl font-bold pt-4">{el.title}</p>
+                <p className="text-2xl font-bold pt-4 hover:underline">{el.title}</p>
               </Link>
               <small className="text-base text-gray-400">{editDate(el.date)}</small>
             </article>

@@ -1,7 +1,7 @@
 ---
 title: 'About Vuex'
 date: '20231225'
-thumbnail: '/images/HatsuneMikuVsing.jpg'
+thumbnail: '/images/NuxtJs.jpg'
 ---
 
 # ***VuexのTypeScript化***

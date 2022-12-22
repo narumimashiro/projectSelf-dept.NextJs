@@ -21,7 +21,8 @@ import ComingSoon from './comingsoon'
 //     buttonItems:[{
 //       btnTitle: 'OK',
 //       callback: () => clickOk(),
-//     }]
+//     }],
+//     component: 'commingsoon',
 //   }
 //   dispatch(modalReducer.openModal(modalInfo))
 // }
