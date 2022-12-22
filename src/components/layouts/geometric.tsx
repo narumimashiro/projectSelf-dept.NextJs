@@ -21,8 +21,7 @@ const Geometric = () => {
       loaded={particlesLoaded}
       options={{
         "fullScreen": {
-          "enable": true,
-          "zIndex": 0,
+          enable: false,
         },
         "particles": {
           "number":{

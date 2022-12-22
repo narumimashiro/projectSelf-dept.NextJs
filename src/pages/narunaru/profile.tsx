@@ -21,9 +21,14 @@ const Profile = () => {
       <Head>
         <title>Profile | Next/React</title>
       </Head>
-      <h1>This is Profile Page</h1>
-      <button style={{width: '20px', height:'20px'}}
-              onClick={openModal}></button>
+      <div className="mt-24">
+        <h1 className="text-6xl font-bold underline">
+          Hello world!
+        </h1>
+        <h1>This is Profile Page</h1>
+        <button style={{width: '200px', height:'200px'}}
+                onClick={openModal}></button>
+      </div>
     </div>
   )
 }
