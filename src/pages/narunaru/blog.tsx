@@ -7,7 +7,6 @@ import NavBar from '@/components/layouts/navbar'
 import MikuFooter from '@/components/layouts/mikufooter'
 import Sakura from '@/components/layouts/sakura'
 import styles from '@/styles/pages/Blog.module.sass'
-import utilStyles from '@/styles/utility.module.sass'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

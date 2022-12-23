@@ -8,15 +8,14 @@ thumbnail: '/images/NextJs.jpg'
 
 ## **ディレクトリ構成**
 ```Text
-src―――lib
+src――lib
     |  |―postblog.ts // ファイルをやり取りをする
     |
     |―pages
        |―main
-       |  |―blog.tsx // ブログの一覧が表示されているページ
-       |
-       |―posts
-          |―[id].tsx // 任意のページに対して行う
+          |―blog.tsx // ブログの一覧が表示されているページ
+          |―blog
+              |―[article].tsx // 任意のページに対して行う
 ```
 
 ## **postblog.ts** 
@@ -117,7 +116,6 @@ import NavBar from '@/components/layouts/navbar'
 import MikuFooter from '@/components/layouts/mikufooter'
 import Sakura from '@/components/layouts/sakura'
 import styles from '@/styles/pages/Blog.module.sass'
-import utilStyles from '@/styles/utility.module.sass'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
