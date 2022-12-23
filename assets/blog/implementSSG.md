@@ -143,7 +143,7 @@ const Blog = ({ articleDataList }: Props) => {
     <div className="mt-28">
       <Head>
         <title>Blog | Next/React</title>
-        <meta name='discription' content='SSG Narumi Blog Page created by NextJs' />
+        <meta name='discription' content='SSG Blog Page created by NextJs' />
       </Head>
       <Sakura/>
       <section className="text-center mb-12">
