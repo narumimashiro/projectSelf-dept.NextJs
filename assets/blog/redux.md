@@ -49,9 +49,6 @@ src―redux
         |―modal.types.ts
 ```
 
-Component思考が強いから(?)Vuexとは違って、特定のComponent用にReduxを用意する  
-この記事はモーダルウィンドウ用に作ったReduxをもとに記述している
-
 ## **store.ts**
 ```ts
 import { configureStore } from '@reduxjs/toolkit'
