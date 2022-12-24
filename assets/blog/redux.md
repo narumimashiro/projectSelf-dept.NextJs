@@ -1,6 +1,6 @@
 ---
-title: 'About Redux'
-date: '20231226'
+title: 'Redux Library'
+date: '20221223'
 thumbnail: '/images/NextJs.jpg'
 ---
 
@@ -22,13 +22,17 @@ src―――redux
 ```
 
 ## **store.ts**
+
+storeはアプリケーションすべてのstate値を保持しているオブジェクトでActionをStoreにDispatchするための手段を提供している。
+
 ```ts
 import { configureStore } from '@reduxjs/toolkit'
 import modalReducer from './modal/modal.reducer'
 
 export const store = configureStore({
   reducer: {
-    modal: modalReducer
+    modal: modalReducer,
+    other: otherReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
