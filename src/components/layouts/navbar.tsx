@@ -9,14 +9,16 @@ interface Props {
 const NavBar = ({ children }: Props) => {
   return (
     <>
-      <nav className={styles.navbar}>
-        <div className={styles["to-top"]}>
+    <div className={styles.navbar}>
+      <nav className="flex absolute w-full h-20 justify-between top-0 left-0">
+        <div>
           <Link href="/">
-            <img src="/images/projectSelf.png"
+            <img className="h-full"
+                 src="/images/projectSelf.png"
                  alt="projectSelf"/>
           </Link>
         </div>
-        <div className={styles["nav-cont"]}>
+        <div className="flex mr-5">
           <li><Link href="/narunaru/profile">Profile</Link></li>
           <li><Link href="/narunaru/blog">Blog</Link></li>
           <li><Link href="https://pjsekai.sega.jp/" target="_blank">prsk</Link></li>
@@ -24,7 +26,8 @@ const NavBar = ({ children }: Props) => {
           <li><Link href="https://playvalorant.com/ja-jp/?utm_source=riotbar&utm_medium=productcard%2Bplayvalorant.com&utm_campaign=val&utm_content=ep5act1" target="_blank">Valorant</Link></li>
         </div>
       </nav>
-      { children }
+    </div>
+    { children }
     </>
   )
 }

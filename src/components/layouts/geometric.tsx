@@ -26,7 +26,7 @@ const Geometric = () => {
         },
         "particles": {
           "number":{
-            "value": 96,
+            "value": 58,
             "density": {
               "enable": true,
               "value_area": 900
@@ -42,7 +42,7 @@ const Geometric = () => {
               "color": "#000000"
             },
             "polygon": {
-              "nb_sides": 5
+              "nb_sides": 9
             },
           },
           "opacity": {
@@ -69,7 +69,7 @@ const Geometric = () => {
             "enable": true,
             "distance": 196,
             "color": "#86cecb",
-            "opacity": 0.39,
+            "opacity": 0.5,
             "width": 1
           },
           "move": {

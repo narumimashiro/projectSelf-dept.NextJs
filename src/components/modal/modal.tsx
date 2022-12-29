@@ -103,7 +103,7 @@ const Modal = () => {
                   <ViewComponent
                     childComp={modalInfo.component} />
                 </div>
-                <footer className="flex h-1/6 items-center justify-end">
+                <footer className="flex h-1/6 items-center justify-end pr-8">
                   <ExecButton
                     btnItems={modalInfo.buttonItems}
                     btnFont={modalInfo.style.fSize} />
