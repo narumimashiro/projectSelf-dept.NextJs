@@ -1,7 +1,7 @@
 ---
 title: '非同期処理のあれこれ'
 date: '20221220'
-thumbnail: '/images/HatsuneMikuLeoNeed.jpg'
+thumbnail: '/images/program.jpg'
 ---
 
 # **非同期処理 Promise async/await**

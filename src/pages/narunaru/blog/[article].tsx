@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import { getAllArticleId, getArticleData } from '@/lib/postblog'
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
 import styles from '@/styles/pages/BlogArticle.module.sass'
-import CodeBlock from '@/lib/codeblock'
+import CodeBlock from '@/components/layouts/codeblock'
 import Sakura from '@/components/layouts/sakura'
 
 export const getStaticPaths: GetStaticPaths = async () => {

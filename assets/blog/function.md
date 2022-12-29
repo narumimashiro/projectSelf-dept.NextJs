@@ -1,7 +1,7 @@
 ---
 title: 'About Python Func'
 date: '20220805'
-thumbnail: '/images/HatsuneMikuMoreMore.jpg'
+thumbnail: '/images/python.jpg'
 ---
 
 # ***Python Function***
