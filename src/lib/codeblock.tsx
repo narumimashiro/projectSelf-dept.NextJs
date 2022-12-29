@@ -1,12 +1,15 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { coldarkCold } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import { CodeComponent } from 'react-markdown/lib/ast-to-react'
+
+
+// import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const CodeBlock: CodeComponent = ({ inline, className, children }) => {
   const match = /language-(\w+)/.exec(className || '');
   return !inline && match ? (
     <SyntaxHighlighter
-      style={oneLight}
+      style={coldarkCold}
       language={match[1]}
       children={String(children).replace(/\n$/, '')}
     />
