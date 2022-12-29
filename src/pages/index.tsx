@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Cielier</title>
+        <title>BTW Next/React</title>
         <meta name="description" content="Bocchi The Work"/>
         <meta name="description" content="NextJs TailwindCSS Sass"/>
         <link rel="icon" href="/favicon.ico" />
