@@ -1,7 +1,7 @@
 ---
 title: 'About CSS Posi'
 date: '20221123'
-thumbnail: '/images/TsSassTailwindCSS.jpg'
+thumbnail: '/images/css.jpg'
 ---
 
 # **`要素の配置位置に関連するCSS`**
