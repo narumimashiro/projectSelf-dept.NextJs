@@ -2,11 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import type { ReactElement } from 'react'
-import { getAllArticleInfo } from '@/lib/postblog'
+import { getAllArticleInfo } from '@/lib/postnote'
 import NavBar from '@/components/layouts/navbar'
 import MikuFooter from '@/components/layouts/mikufooter'
 import Sakura from '@/components/layouts/sakura'
-import styles from '@/styles/pages/Blog.module.sass'
+import styles from '@/styles/pages/Note.module.sass'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const Blog = ({ articleDataList }: Props) => {
+const Note = ({ articleDataList }: Props) => {
 
   const editDate = (date: string) => {
     // date : YYYYMMDD
@@ -33,14 +33,14 @@ const Blog = ({ articleDataList }: Props) => {
   return (
     <div className="mt-28">
       <Head>
-        <title>Blog | Next/React</title>
-        <meta name='discription' content='SSG Narumi Blog Page created by NextJs' />
+        <title>Note | Next/React</title>
+        <meta name='discription' content='SSG Narumi Note Page created by NextJs' />
       </Head>
       <Sakura/>
       <section className="text-center mb-12">
-        <p className="text-8xl font-bold underline decoration-4">BLOG</p>
+        <p className="text-8xl font-bold underline decoration-4">NOTE</p>
         <p className="text-xl italic pt-4">
-          This page is for my blog and writing down what learned self learning<br/>
+          This page is for writing down what learned self learning<br/>
           I'm sorry, if I made a mistake... pls go easy on me...
         </p>
       </section>
@@ -48,11 +48,11 @@ const Blog = ({ articleDataList }: Props) => {
         <div className={styles.grid}>
           {articleDataList.map(el =>
             <article key={el.article}>
-              <Link href={'./blog/'+`${el.article}`}>
+              <Link href={'./note/'+`${el.article}`}>
                 <img src={el.thumbnail}
                      alt={el.thumbnail} />
               </Link>
-              <Link href={'./blog/'+`${el.article}`}>
+              <Link href={'./note/'+`${el.article}`}>
                 <p className="text-2xl font-bold pt-4 hover:underline">{el.title}</p>
               </Link>
               <small className="text-base text-gray-400">{editDate(el.date)}</small>
@@ -64,14 +64,14 @@ const Blog = ({ articleDataList }: Props) => {
   )
 }
 
-Blog.getLayout = (Blog: ReactElement) => {
+Note.getLayout = (Note: ReactElement) => {
   return (
     <>
       <NavBar>
-        { Blog }
+        { Note }
       </NavBar>
       <MikuFooter/>
     </>
   )
 }
-export default Blog
+export default Note

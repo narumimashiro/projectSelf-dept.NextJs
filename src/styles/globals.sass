@@ -24,4 +24,8 @@ a
 
 @import "~tailwindcss/base"
 @import "~tailwindcss/components"
-@tailwind utilities
+@import "~tailwindcss/utilities"
+
+@layer components
+  .btt-line
+    @apply inline-block w-1/2 h-1 bg-black rounded-sm

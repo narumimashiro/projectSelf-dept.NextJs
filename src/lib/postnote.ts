@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
 
-interface BlogInfo {
+interface NoteInfo {
   readonly article: string,
   readonly title: string,
   readonly date: string,
@@ -10,11 +10,11 @@ interface BlogInfo {
   readonly content: string,
 }
 
-const blogDirectory = path.join(process.cwd(), 'assets/blog')
+const noteDirectory = path.join(process.cwd(), 'assets/note')
 
 const getAllArticleId = async () => {
-  const blogList = fs.readdirSync(blogDirectory)
-  return blogList.map(el => {
+  const noteList = fs.readdirSync(noteDirectory)
+  return noteList.map(el => {
     return {
       params: {
         article: el.replace(/\.md$/, '')
@@ -24,14 +24,14 @@ const getAllArticleId = async () => {
 }
 
 const getAllArticleInfo = async () => {
-  const blogList = fs.readdirSync(blogDirectory)
-  let articleDataList = Array<BlogInfo>(blogList.length)
+  const noteList = fs.readdirSync(noteDirectory)
+  let articleDataList = Array<NoteInfo>(noteList.length)
 
-  blogList.forEach((el, index) => {
+  noteList.forEach((el, index) => {
     const article = el.replace(/\.md$/, '')
-    const fullPath = path.join(blogDirectory, el)
-    const blogData = fs.readFileSync(fullPath, 'utf-8')
-    const { data, content } = matter(blogData)
+    const fullPath = path.join(noteDirectory, el)
+    const noteData = fs.readFileSync(fullPath, 'utf-8')
+    const { data, content } = matter(noteData)
 
     articleDataList[index] = {
       article  : article,
@@ -41,17 +41,17 @@ const getAllArticleInfo = async () => {
       content  : content,
     }
   })
-  sortBlogList(articleDataList)
+  sortNoteList(articleDataList)
   
   return articleDataList
 }
 
 const getArticleData = async (slug: string) => {
-  const fullPath = path.join(blogDirectory, `${slug}.md`)
-  const blogData = fs.readFileSync(fullPath, 'utf-8')
-  const { data, content } = matter(blogData)
+  const fullPath = path.join(noteDirectory, `${slug}.md`)
+  const noteData = fs.readFileSync(fullPath, 'utf-8')
+  const { data, content } = matter(noteData)
 
-  const articleData: BlogInfo = {
+  const articleData: NoteInfo = {
     article  : slug,
     title    : data.title,
     date     : data.date,
@@ -62,14 +62,14 @@ const getArticleData = async (slug: string) => {
   return articleData
 }
 
-export const sortBlogList = (blogList: Array<BlogInfo>) => {
-  const blgLen = blogList.length - 1
+export const sortNoteList = (noteList: Array<NoteInfo>) => {
+  const blgLen = noteList.length - 1
   for(let i = 0; i < blgLen; i++) {
     for(let j = blgLen; i < j; j--) {
-      if(blogList[j].date > blogList[j - 1].date) {
-        let tmp = blogList[j]
-        blogList[j] = blogList[j - 1]
-        blogList[j - 1] = tmp
+      if(noteList[j].date > noteList[j - 1].date) {
+        let tmp = noteList[j]
+        noteList[j] = noteList[j - 1]
+        noteList[j - 1] = tmp
       }
     }
   }
