@@ -1,22 +1,22 @@
-%paragraph
-  margin-top: 4rem
-
 @mixin articleHeader($fSize: 2em)
   font-size: $fSize
-  @extend %paragraph
+  margin-top: 4rem
+  margin-bottom: 2rem
 
 .markdown
   width: 60vw
   margin: 7rem auto 7rem auto
   h1
-    @include articleHeader(3.9em)
+    @include articleHeader(3em)
     text-align: center
   h2
     @include articleHeader()
   h3
     @include articleHeader(1.5em)
   p
-    margin: 1.5rem auto 1.5rem auto
+    margin: 1rem auto 0 auto
+  li
+    margin: 1em auto 1em auto
   strong
     padding: 0 10px 0 10px
     background-image: linear-gradient(transparent 80%, #8effff)
