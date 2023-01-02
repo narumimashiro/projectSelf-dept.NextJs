@@ -1,6 +1,6 @@
 ---
-title: 'SSG/SSR NextJs'
-date: '20230219'
+title: 'SSG実装のブログページ'
+date: '20221230'
 thumbnail: '/images/NextJs.jpg'
 ---
 
@@ -186,7 +186,7 @@ Blog.getLayout = (Blog: ReactElement) => {
 export default Blog
 ```
 ## **[article].tsx**
----
+
 任意のページについて処理を行う、SSGの実装におけるメインの話はここで行われている
 ```typescript
 
