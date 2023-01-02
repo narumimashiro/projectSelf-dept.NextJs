@@ -1,14 +1,15 @@
 ---
-title: 'About Vuex'
-date: '20231225'
+title: 'VuexのTypeScript化'
+date: '20221205'
 thumbnail: '/images/NuxtJs.jpg'
 ---
 
-# ***VuexのTypeScript化***
+# **VuexのTypeScript化**
 
 ## **ディレクトリ構成**
-state, actions, getters, mutationsをモジュール化したVuexをTypeScript化  
+state, actions, getters, mutationsをモジュール化したVuexをTypeScript化したので、備忘録として記録します。
 ※node_module/vuex/types/index.d.tsに型定義が書いてある
+
 ```Text
 src―――store
        |―store.ts
@@ -23,6 +24,7 @@ src―――store
 ```
 
 ## **store.ts**
+
 ```ts
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
@@ -44,6 +46,7 @@ export default new Vuex.Store<RootState>(store);
 ```
 
 ### **vuex/types/index.d.ts**
+
 ```ts
 export interface StoreOptions<S> {
   state?: S | (() => S);
@@ -58,6 +61,7 @@ export interface StoreOptions<S> {
 ```
 
 ## **types.ts**
+
 ```ts
 export interface RootState {
   version: string,
@@ -65,6 +69,7 @@ export interface RootState {
 ```
 
 ## **redux/index.ts**
+
 ```ts
 import { Module } from 'vuex'
 import { getters } from './getters'
@@ -89,6 +94,7 @@ export const Redux: Module<ReduxState, RootState> = {
 ```
 
 ### **vuex/types/index.d.ts**
+
 ```ts
 export interface Module<S, R> {
   namespaced?: boolean;
@@ -101,7 +107,7 @@ export interface Module<S, R> {
 ```
 
 ## **redux/types.ts**
-型定義をしていく
+
 ```ts
 export interface ReduxState {
   loading: boolean,  /* sample code for loading */
@@ -109,6 +115,7 @@ export interface ReduxState {
 ```
 
 ## **redux/actions.ts**
+
 ```ts
 import { ActionTree } from 'vuex'
 import { RootState } from '../types'
@@ -119,6 +126,7 @@ export const actions: ActionTree<ReduxState, RootState> = {
 ```
 
 ### **vuex/types/index.d.ts**
+
 ```ts
 export interface ActionTree<S, R> {
   [key: string]: Action<S, R>;
@@ -126,6 +134,7 @@ export interface ActionTree<S, R> {
 ```
 
 ## **redux/getters.ts**
+
 ```ts
 import { GetterTree } from 'vuex'
 import { RootState } from '../types'
@@ -136,6 +145,7 @@ export const getters: GetterTree<ReduxState, RootState> = {
 ```
 
 ### **vuex/types/index.d.ts**
+
 ```ts
 export interface GetterTree<S, R> {
   [key: string]: Getter<S, R>;
@@ -143,6 +153,7 @@ export interface GetterTree<S, R> {
 ```
 
 ## **redux/mutations.ts**
+
 ```ts
 import { MutationTree } from 'vuex'
 import { ReduxState } from './types'
@@ -156,6 +167,7 @@ export const mutations: MutationTree<ReduxState> = {
 ```
 
 ### **vuex/types/index.d.ts**
+
 ```ts
 export interface MutationTree<S> {
   [key: string]: Mutation<S>;

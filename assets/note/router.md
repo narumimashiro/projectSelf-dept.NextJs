@@ -1,31 +1,29 @@
 ---
-title: '非同期処理のあれこれ'
-date: '20221220'
-thumbnail: '/images/program.jpg'
+title: 'NextJsの動的ルーティング'
+date: '20221126'
+thumbnail: '/images/NextJs.jpg'
 ---
 
-# ***NextJs Library***  
+# **NextJsの動的ルーティング**
 
-## ***[Router](https://nextjs.org/docs/api-reference/next/router)***
-```
-Reactだとページ遷移をするためのRouterはDOMを用意して行わないといけなかったが、NextJsはpagesディレクトリに配置することでPagesからのPathがそのままURLになる。凄く便利!!
-```
+## **Routerについて**
 
-## ***[Link](https://nextjs.org/docs/api-reference/next/link)***
+Reactだとページ遷移をするためのRouterはDOMを用意して行わないといけなかったが、
+NextJsはデフォルトでpagesディレクトリが用意されており、配下にファイルを置くことでそのファイルまでのpathがそのままURLとなり、
+明示的にルーティング設定を記述する必要がなくなり、とても便利になっています。
+
+公式リファレンス : <https://nextjs.org/docs/api-reference/next/router>
+
+## **Link**
+
+Linkをimportして、pathを指定してあげることで呼び出せます
 ```javascript
-Linkをimportして、pathを指定してあげることで呼び出せる
 import Link from 'next/link' ...
 <Link href="/">ルートディレクトリに移動</Link>
 ```
+公式リファレンス : <https://nextjs.org/docs/api-reference/next/link>
 
-### **Linkタグとaタグの違いは？**
-```
-リロードが入るか入らないかの違いがある。
-なので、基本的にはLinkタグを用いる。
-```
+## **Linkタグとaタグの違いは？**
 
-### ***ちなみに...***
-```javascript
-<Link href="/"><a>to Home</a></Link>
-のようにaタグを入れても良い、SEOの観点ではaタグを挿入した方が良い
-```
+リロードが入るか入らないかの違いがあります。
+なので、基本的にはLinkタグを用います。

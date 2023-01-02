@@ -1,20 +1,21 @@
 ---
-title: '非同期処理のあれこれ'
-date: '20221220'
-thumbnail: '/images/program.jpg'
+title: 'Python殴り書きメモ'
+date: '20221127'
+thumbnail: '/images/python.jpg'
 ---
 
-# ***Python Library***
+# ***Python殴り書きメモ***
 
-## **■ PythonAutoGUIで " @ ", " ^ ", " : " を使える用にする**
-**> 修正ファイル : `C:\Python310\Lib\site-packages\pyautogui\_pyautogui_win.py`**
-<br>
+## **PythonAutoGUIで " @ ", " ^ ", " : " を使える用にする**
 
-&emsp; *`// 修正前`*
+修正ファイル : 
+C:\Python310\Lib\site-packages\pyautogui\_pyautogui_win.py
+
+修正前)
 ```python
 needsShift = pyautogui.isShiftCharacter(key)
 ```
-&emsp; *`// 修正後`*
+修正後)
 ```python
 needsShift = pyautogui.isShiftCharacter(key)
 if key == '@': needsShift = False
@@ -22,8 +23,10 @@ if key == '^': needsShift = False
 if key == ':': needsShift = False
 ```
 
-## **■ Pythonのprintについて豆知識**
+## **Pythonのprintについて豆知識**
+
 ### **変数の型を知ることができる**
+
 ```python
 type(XXX)のように記述する
 print(num, type(num)) // 1 <class 'int'>
@@ -31,7 +34,8 @@ print(lang, type(lang)) // Python <class 'str'>
 print(is_ok, type(is_ok)) // True <class 'bool'>
 ```
 
-## **■ Pythonの計算いろいろ**
+## **Pythonの計算あれこれ**
+
 ```python
 17 / 3 
 >> 5.66666666667

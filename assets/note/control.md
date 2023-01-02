@@ -114,7 +114,7 @@ for i in range(2,10,3):
     print(i) // 2,5,8
 ```
 
-- for文でindexを使用しない場合
+例)10回回したいが、indexの使用予定がないとき
 ```python
 for _ in range(10):
 ```

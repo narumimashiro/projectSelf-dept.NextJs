@@ -1,6 +1,6 @@
 ---
 title: 'Redux Library'
-date: '20221223'
+date: '20230102'
 thumbnail: '/images/NextJs.jpg'
 ---
 
@@ -50,13 +50,14 @@ src―redux
 ```
 
 ## **store.ts**
+
 ```ts
 import { configureStore } from '@reduxjs/toolkit'
 import modalReducer from './modal/modal.reducer'
 
 export const store = configureStore({
   reducer: {
-    modal: modalReducer,
+    modal: modalReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -76,6 +77,7 @@ export default store
 ```
 
 ## **modal.reducer.ts**
+
 ```ts
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
@@ -94,7 +96,8 @@ const initialState = {
     buttonItems: [{
       btnTitle: '',
       callback: Function.prototype,
-    }]
+    }],
+    component: '',
   }
 } as ModalType.ModalState
 
@@ -110,6 +113,7 @@ const modalSlice = createSlice({
                                              : initialState.modalInfo.style
       state.modalInfo.buttonItems = payload.buttonItems! ? payload.buttonItems.slice()
                                                          : initialState.modalInfo.buttonItems.slice()
+      state.modalInfo.component = payload.component
     },
     closeModal(state) {
       state.isModalOpen = false
@@ -122,6 +126,7 @@ export default modalSlice.reducer
 ```
 
 ## **modal.types.ts**
+
 ```ts
 export interface ModalStyle {
   width: number,
@@ -138,14 +143,16 @@ export type ModalInfo = {
   title: string,
   style?: ModalStyle,
   buttonItems?: Array<ButtonItems>,
+  component: string,
 }
 
 export interface ModalState {
   isModalOpen: boolean,
   modalInfo: {
     title: string,
-    style: ModalStyle
-    buttonItems: Array<ButtonItems>
+    style: ModalStyle,
+    buttonItems: Array<ButtonItems>,
+    component: string,
   },
 }
 ```
@@ -156,16 +163,20 @@ useSelectorでStateの値を取得、Vuexのgettersみたいなもの
 useDispatchでStateの値を変更する、VuexのActions,Mutationsみたいなもの
 
 ## **モーダルウィンドウを呼び出しているComponent**
+
 ```ts
+const dispatch = useDispatch()
 const openModal = () => {
-  const modal_info = {
-    title: 'This is modal window',
-    style: {
-      width: 600,
-      height: 400
+  const modalInfo= {
+      title: 'Notice',
+      style: {
+        width: 900,
+        height: 600,
+        fSize: 50,
+      },
+      component: 'commingsoon'
     }
-  }
-  dispatch(modalReducer.openModal(modal_info))
+    dispatch(modalReducer.openModal(modalInfo))
 }
 ```
 
@@ -177,6 +188,9 @@ import { modalReducer } from '@/redux/modal/modal.reducer'
 import { CSSTransition } from 'react-transition-group'
 import styles from '@/styles/components/Modal.module.sass'
 import { ButtonItems } from '@/redux/modal/modal.types'
+
+// ViewComponent
+import ComingSoon from './comingsoon'
 
 // *** How to use Modal Window ************************** //
 //
@@ -191,22 +205,42 @@ import { ButtonItems } from '@/redux/modal/modal.types'
 //     buttonItems:[{
 //       btnTitle: 'OK',
 //       callback: () => clickOk(),
-//     }]
+//     }],
+//     component: 'commingsoon',
 //   }
 //   dispatch(modalReducer.openModal(modalInfo))
 // }
 //
 // ****************************************************** //
 
-interface Props {
-  btnItems: Array<ButtonItems>
+interface CompProps {
+  childComp: string
 }
-function ExecButton(props: Props) {
+
+function ViewComponent(props: CompProps) {
+
+  switch(props.childComp) {
+  case 'commingsoon':
+    return <ComingSoon/>
+  default:
+    console.log('Error, not found component')
+    return <></>
+  }
+}
+
+interface BtnProps {
+  btnItems: Array<ButtonItems>,
+  btnFont: number,
+}
+function ExecButton(props: BtnProps) {
   const execButton = props.btnItems.map((el) =>
     <li key={el.btnTitle}
+        className="inline ml-3 list-none"
         onClick={el.callback}
     >
-      <span>{el.btnTitle}</span>
+      <span style={{fontSize: props.btnFont / 2 + 'px'}}>
+        {el.btnTitle}
+      </span>
     </li>
   )
 
@@ -229,6 +263,7 @@ const Modal = () => {
       in={isModalOpen}
       timeout={390}
       unmountOnExit
+      styles={{zIndex: 20}}
       classNames={{
         enter:       styles['modal-enter'],
         enterActive: styles['modal-enter-active'],
@@ -242,17 +277,24 @@ const Modal = () => {
                        height: modalInfo.style.height + 'px',}}
                onClick={(event) => event.stopPropagation()}>
               <div className={styles['modal-content']}>
-                <header>
-                  <span style={{fontSize: modalInfo.style.fSize + 'px'}}>
+                <header className="flex h-1/6 justify-center">
+                  <span className="font-bold"
+                        style={{fontSize: modalInfo.style.fSize + 'px'}}>
                     {modalInfo.title}
                   </span>
                 </header>
-                <div>use this area message board</div>
-                <footer>
+                <div className="h-2/3">
+                  <ViewComponent
+                    childComp={modalInfo.component} />
+                </div>
+                <footer className="flex h-1/6 items-center justify-end pr-8">
                   <ExecButton
-                    btnItems={modalInfo.buttonItems} />
-                  <li onClick={closeModal}>
-                    <span>Close</span>
+                    btnItems={modalInfo.buttonItems}
+                    btnFont={modalInfo.style.fSize} />
+                  <li className="inline ml-3 list-none"
+                      onClick={closeModal}>
+                    <span className="font-bold hover:underline"
+                          style={{fontSize: modalInfo.style.fSize / 2 + 'px'}}>Close</span>
                   </li>
                 </footer>
               </div>
@@ -265,8 +307,6 @@ const Modal = () => {
 export default Modal
 ```
 
-## **// TODO 後で読む**
+参考ページ : <https://reffect.co.jp/react/redux-toolkit#Redux_Toolkit>
 
-**[Redux入門者向け初めてのRedux Toolkit](https://reffect.co.jp/react/redux-toolkit#Redux_Toolkit)**
-
-**[[Redux Toolkit] 4つの主要APIについて](https://qiita.com/10mi8o/items/5b5ded0504b0f28ac611)**
+参考ページ : <https://qiita.com/10mi8o/items/5b5ded0504b0f28ac611>
