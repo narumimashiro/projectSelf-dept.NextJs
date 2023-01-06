@@ -1,5 +1,5 @@
 ---
-title: '非同期処理のあれこれ'
+title: 'JavaScriptメソッド'
 date: '20221125'
 thumbnail: '/images/program.jpg'
 ---
