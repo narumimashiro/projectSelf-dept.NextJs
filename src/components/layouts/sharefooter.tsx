@@ -43,8 +43,7 @@ function ShareLine(props: PageParams) {
 
 function ShareFacebook(props: PageParams) {
   const faceboolUrl = new URL('http://www.facebook.com/share.php')
-  faceboolUrl.searchParams.set('text', props.pageParams.title)
-  faceboolUrl.searchParams.set('url', props.pageParams.url)
+  faceboolUrl.searchParams.set('u', props.pageParams.url)
 
   return (
     <Link href={faceboolUrl.toString()}
