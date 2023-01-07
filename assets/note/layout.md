@@ -4,7 +4,7 @@ date: '20221231'
 thumbnail: '/images/NextJs.jpg'
 ---
 
-# **NextJs Library**
+# **getLayoutの実装**
 
 ## **Layouts**
 
