@@ -38,8 +38,9 @@ const NoteArticle = ({articleData}: Props) => {
   const pTitle = 'Note | ' + articleData.title
   const setTitle = useSetRecoilState(pageInfo)
   useEffect(() => {
-    setTitle({title: pTitle, url: window.location.href})
-  }, [pTitle])
+    const currentUrl = window.location.href
+    setTitle({title: pTitle, url: currentUrl})
+  }, [])
 
   return (
     <div>
