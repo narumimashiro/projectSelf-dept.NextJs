@@ -1,10 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
-import type { ReactElement } from 'react'
 import { getAllArticleInfo } from '@/lib/postnote'
-import NavBar from '@/components/layouts/navbar'
-import MikuFooter from '@/components/layouts/mikufooter'
 import Sakura from '@/components/layouts/sakura'
 import styles from '@/styles/pages/Note.module.sass'
 
@@ -61,17 +58,6 @@ const Note = ({ articleDataList }: Props) => {
         </div>
       </section>
     </div>
-  )
-}
-
-Note.getLayout = (Note: ReactElement) => {
-  return (
-    <>
-      <NavBar>
-        { Note }
-      </NavBar>
-      <MikuFooter/>
-    </>
   )
 }
 export default Note

@@ -1,5 +1,5 @@
 ---
-title: 'About NextJs'
+title: 'NextJsの基礎'
 date: '20230101'
 thumbnail: '/images/NextJs.jpg'
 ---
