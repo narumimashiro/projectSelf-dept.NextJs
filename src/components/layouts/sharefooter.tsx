@@ -42,11 +42,11 @@ function ShareLine(props: PageParams) {
 }
 
 function ShareFacebook(props: PageParams) {
-  const faceboolUrl = new URL('http://www.facebook.com/share.php')
-  faceboolUrl.searchParams.set('u', props.pageParams.url)
+  const facebookUrl = new URL('http://www.facebook.com/share.php')
+  facebookUrl.searchParams.set('u', props.pageParams.url)
 
   return (
-    <Link href={faceboolUrl.toString()}
+    <Link href={facebookUrl.toString()}
           target='_blank'
           rel='noopenner noreferrer'
     >
