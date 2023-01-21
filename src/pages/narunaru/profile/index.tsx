@@ -22,7 +22,7 @@ const Profile = () => {
   return (
     <div>
       <Head>
-        <title>Profile | Next/React</title>
+        <title>B.T.W | Profile</title>
       </Head>
       <div className="flex h-screen justify-center items-center">
         <h1 className="text-4xl">It will be Profile page...someday...</h1>

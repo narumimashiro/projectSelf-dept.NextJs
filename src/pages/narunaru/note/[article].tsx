@@ -64,13 +64,12 @@ const NoteArticle = ({articleData}: Props) => {
 NoteArticle.getLayout = (NoteArticle: ReactElement) => {
   return (
     <>
-    <RecoilRoot>
-      <NavBar>
-        { NoteArticle }
-      </NavBar>
-      <ShareFooter/>
-    </RecoilRoot>
-      
+      <RecoilRoot>
+        <NavBar>
+          { NoteArticle }
+        </NavBar>
+        <ShareFooter/>
+      </RecoilRoot>
     </>
   )
 }

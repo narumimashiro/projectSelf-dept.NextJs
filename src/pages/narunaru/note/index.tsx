@@ -30,7 +30,7 @@ const Note = ({ articleDataList }: Props) => {
   return (
     <div className="mt-28">
       <Head>
-        <title>Note | Next/React</title>
+        <title>B.T.W | Note</title>
         <meta name='discription' content='SSG Narumi Note Page created by NextJs' />
       </Head>
       <Sakura/>
