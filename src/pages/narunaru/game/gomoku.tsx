@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil'
 import { gomokuData } from '@/recoil/game/gameinfo'
 import styles from '@/styles/pages/GameGomoku.module.sass'
 import GameHeader from '@/components/ui_components/gameheader'
+import Sakura from '@/components/ui_components/sakura'
 
 // 定数定義
 const BOARDSIZE = 17
@@ -71,6 +72,7 @@ const Gomoku = () => {
         <title>Game | 五目並べ</title>
         <meta name='discription' content='game gomoku'></meta>
       </Head>
+      <Sakura/>
       <div className='w-full min-h-screen'>
         <GameHeader gameTitle='五目並べ'/>
         <div className='h-10 text-center text-2xl mt-10'>
