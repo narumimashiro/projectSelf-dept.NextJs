@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import { getAllArticleInfo } from '@/lib/postnote'
-import Sakura from '@/components/layouts/sakura'
+import Sakura from '@/components/ui_components/sakura'
 import styles from '@/styles/pages/Note.module.sass'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
@@ -30,7 +30,7 @@ const Note = ({ articleDataList }: Props) => {
   return (
     <div className="mt-28">
       <Head>
-        <title>Note | Next/React</title>
+        <title>B.T.W | Note</title>
         <meta name='discription' content='SSG Narumi Note Page created by NextJs' />
       </Head>
       <Sakura/>

@@ -1,16 +1,15 @@
 
 import Head from 'next/head'
-import { RecoilRoot, useSetRecoilState } from 'recoil'
-import { ReactElement, useEffect }  from 'react'
+import { useSetRecoilState } from 'recoil'
+import { useEffect }  from 'react'
 import ReactMarkdown from 'react-markdown'
 import { getAllArticleId, getArticleData } from '@/lib/postnote'
 import { InferGetStaticPropsType, GetStaticPaths, GetStaticPropsContext } from 'next'
 import styles from '@/styles/pages/NoteArticle.module.sass'
 import CodeBlock from '@/components/ui_components/codeblock'
-import Sakura from '@/components/layouts/sakura'
+import Sakura from '@/components/ui_components/sakura'
 import BackToTop from '@/components/ui_components/backtotop'
 import { pageInfo } from '@/recoil/siteinfo/siteinfo'
-import NavBar from '@/components/layouts/navbar'
 import ShareFooter from '@/components/layouts/sharefooter'
 
 
@@ -57,21 +56,8 @@ const NoteArticle = ({articleData}: Props) => {
         }}
       />
       <BackToTop/>
-    </div>
-  )
-}
-
-NoteArticle.getLayout = (NoteArticle: ReactElement) => {
-  return (
-    <>
-    <RecoilRoot>
-      <NavBar>
-        { NoteArticle }
-      </NavBar>
       <ShareFooter/>
-    </RecoilRoot>
-      
-    </>
+    </div>
   )
 }
 export default NoteArticle

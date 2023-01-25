@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Getmetric from '@/components/layouts/geometric'
+import Getmetric from '@/components/ui_components/geometric'
 
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>BTW Next/React</title>
+        <title>B.T.W Next/React</title>
         <meta name="description" content="Bocchi The Work"/>
         <meta name="description" content="NextJs TailwindCSS Sass"/>
         <link rel="icon" href="/favicon.ico" />

@@ -21,11 +21,13 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   
   if(Component.getLayout) {
     return Component.getLayout(
-      <Provider store={ store }>
-        <Modal />
-        <Component { ...pageProps } />
-      </Provider>
-    );
+      <RecoilRoot>
+        <Provider store={ store }>
+          <Modal />
+          <Component { ...pageProps } />
+        </Provider>
+      </RecoilRoot>
+    )
   }
 
   return (

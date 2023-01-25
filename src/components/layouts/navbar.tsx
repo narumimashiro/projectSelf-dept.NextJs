@@ -20,6 +20,7 @@ const NavBar = ({ children }: Props) => {
         </div>
         <div className="flex mr-5">
           <li><Link href="/narunaru/profile">Profile</Link></li>
+          <li><Link href="/narunaru/game">Game</Link></li>
           <li><Link href="/narunaru/note">Note</Link></li>
         </div>
       </nav>

@@ -20,4 +20,4 @@ const MikuFooter = () => {
   )
 }
 
-export default MikuFooter;
+export default MikuFooter
