@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Getmetric from '@/components/layouts/geometric'
+import Getmetric from '@/components/ui_components/geometric'
 
 export default function Home() {
   return (
