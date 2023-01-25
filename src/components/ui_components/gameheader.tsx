@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 interface HeaderInfo {
   readonly gameTitle: string,
+  clickToBack: () => void
 }
 
 const GameHeader = (props: HeaderInfo) => {
@@ -11,7 +12,8 @@ const GameHeader = (props: HeaderInfo) => {
         {props.gameTitle}
       </p>
       <Link href='/narunaru/game'>
-        <p className='absolute text-xl right-28 underline hover:no-underline'>
+        <p className='absolute text-xl right-28 underline hover:no-underline'
+           onClick={props.clickToBack}>
           back to list
         </p>
       </Link>

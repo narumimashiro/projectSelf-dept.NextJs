@@ -1,10 +1,14 @@
 import Head from 'next/head'
-import { ReactElement } from 'react'
+import { ReactElement, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { gomokuData } from '@/recoil/game/gameinfo'
 import styles from '@/styles/pages/GameGomoku.module.sass'
 import GameHeader from '@/components/ui_components/gameheader'
 import Sakura from '@/components/ui_components/sakura'
+
+// Modalウィンドウ用
+import { useDispatch } from 'react-redux'
+import { modalReducer } from '@/redux/modal/modal.reducer'
 
 // 定数定義
 const BOARDSIZE = 17
@@ -54,6 +58,18 @@ const GomokuBoard = (props: BoardInfo) => {
 
 const Gomoku = () => {
   const [gameData, setGameData] = useRecoilState(gomokuData)
+  const dispatch = useDispatch()
+
+  const initBoard = () => {
+    setGameData({p1IsNext: true,
+                 currentBoard: Array(BOARDSIZE).fill(Array(BOARDSIZE).fill(0)),
+                 previousBoard: Array(BOARDSIZE).fill(Array(BOARDSIZE).fill(0))})
+  }
+
+  const restartGame = () => {
+    initBoard()
+    dispatch(modalReducer.closeModal())
+  }
 
   const handleClick = (x: number, y: number) => {
     if(gameData.currentBoard[y][x] != EMPTY) return
@@ -66,6 +82,20 @@ const Gomoku = () => {
                  previousBoard: gameData.currentBoard})
   }
 
+  useEffect(() => {
+    if(judgeWinner(gameData.currentBoard)) {
+      const modalInfo = {
+        title: 'Congratulations!!',
+        buttonItems: [{
+          btnTitle: 'Restart',
+          callback: () => restartGame(),
+        }],
+        component: 'gomokuresult'
+      }
+      dispatch(modalReducer.openModal(modalInfo))
+    }
+  }, [gameData])
+
   return (
     <>
       <Head>
@@ -74,9 +104,9 @@ const Gomoku = () => {
       </Head>
       <Sakura/>
       <div className='w-full min-h-screen'>
-        <GameHeader gameTitle='五目並べ'/>
+        <GameHeader gameTitle='五目並べ'
+                    clickToBack={() => initBoard()}/>
         <div className='h-10 text-center text-2xl mt-10'>
-          {judgeWinner(gameData.currentBoard) && <span>Congratulations!!</span>}
           Next Player : {gameData.p1IsNext ? <span className='text-pink-300 font-bold'>Player1</span>
                                            : <span className='text-blue-300 font-bold'>Player2</span>}
         </div>

@@ -1,5 +1,6 @@
 import { useRecoilState } from 'recoil'
 import { messageState } from '@/recoil/message/message'
+
 const ComingSoon = () => {
   const [message, setMessage] = useRecoilState(messageState)
 

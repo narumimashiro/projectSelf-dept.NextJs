@@ -19,6 +19,10 @@ const Confetti = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
+        "fullScreen": {
+          "enable": true,
+          "zIndex": -1
+        },
         "particles": {
           "number": {
             "value": 0

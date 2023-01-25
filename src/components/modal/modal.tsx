@@ -7,6 +7,7 @@ import { ButtonItems } from '@/redux/modal/modal.types'
 
 // ViewComponent
 import ComingSoon from './comingsoon'
+import GomokuResult from './gomokuresult'
 
 // *** How to use Modal Window ************************** //
 //
@@ -38,8 +39,10 @@ function ViewComponent(props: CompProps) {
   switch(props.childComp) {
   case 'commingsoon':
     return <ComingSoon/>
+  case 'gomokuresult':
+    return <GomokuResult/>
   default:
-    console.log('Error, not found component')
+    console.error('Error, not found component')
     return <></>
   }
 }
@@ -54,7 +57,8 @@ function ExecButton(props: BtnProps) {
         className="inline ml-3 list-none"
         onClick={el.callback}
     >
-      <span style={{fontSize: props.btnFont / 2 + 'px'}}>
+      <span className="font-bold underline hover:no-underline"
+            style={{fontSize: props.btnFont / 2 + 'px'}}>
         {el.btnTitle}
       </span>
     </li>
@@ -109,7 +113,7 @@ const Modal = () => {
                     btnFont={modalInfo.style.fSize} />
                   <li className="inline ml-3 list-none"
                       onClick={closeModal}>
-                    <span className="font-bold hover:underline"
+                    <span className="font-bold underline hover:no-underline"
                           style={{fontSize: modalInfo.style.fSize / 2 + 'px'}}>Close</span>
                   </li>
                 </footer>
