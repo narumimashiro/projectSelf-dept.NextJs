@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="k5hZaZTh_4cD5fyDHGei" name="Page-1">
-        <mxGraphModel dx="758" dy="976" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="800" pageHeight="96" background="#000000" math="0" shadow="1">
+        <mxGraphModel dx="1086" dy="950" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="800" pageHeight="96" background="#99FFFF" math="0" shadow="1">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -30,101 +30,135 @@
                 <mxCell id="32" value="手番" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="430" y="124" width="140" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value=":Gomoku" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="120" y="600" width="120" height="720" as="geometry"/>
+                <mxCell id="33" value=":Gomoku" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="666" width="120" height="720" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="33" vertex="1">
+                <mxCell id="41" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="33" vertex="1">
                     <mxGeometry x="50" y="120" width="20" height="520" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" value=":GomokuBoard" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="280" y="600" width="120" height="720" as="geometry"/>
+                <mxCell id="34" value=":GomokuBoard" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="666" width="120" height="720" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="34" vertex="1">
+                <mxCell id="44" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="34" vertex="1">
                     <mxGeometry x="50" y="240" width="20" height="360" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" parent="34" edge="1">
+                <mxCell id="64" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="34" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-90" y="600" as="targetPoint"/>
                         <mxPoint x="50" y="600" as="sourcePoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="35" value=":GomokuGrid" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="440" y="600" width="120" height="720" as="geometry"/>
+                <mxCell id="35" value=":GomokuGrid" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="666" width="120" height="720" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="35" vertex="1">
+                <mxCell id="62" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="35" vertex="1">
                     <mxGeometry x="50" y="320" width="20" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="66" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;" edge="1" parent="35">
+                <mxCell id="66" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="35" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-90" y="520" as="targetPoint"/>
                         <mxPoint x="50" y="520" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="36" value=":Atom" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;gradientColor=none;fillColor=default;strokeColor=#FFFFFF;" parent="1" vertex="1">
-                    <mxGeometry x="600" y="600" width="120" height="720" as="geometry"/>
+                <mxCell id="36" value=":Atom" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;gradientColor=none;fillColor=default;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="666" width="120" height="720" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="36" vertex="1">
+                <mxCell id="37" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="36" vertex="1">
                     <mxGeometry x="50" y="160" width="20" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="68" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="36">
+                <mxCell id="68" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="36" vertex="1">
                     <mxGeometry x="50" y="400" width="20" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="71" value="onClick" style="shape=umlFrame;whiteSpace=wrap;html=1;" vertex="1" parent="36">
+                <mxCell id="71" value="onClick" style="shape=umlFrame;whiteSpace=wrap;html=1;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="36" vertex="1">
                     <mxGeometry x="-160" y="360" width="280" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="50" y="600" width="20" height="120" as="geometry"/>
+                <mxCell id="40" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="666" width="20" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" value="render()" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;" parent="1" source="40" target="41" edge="1">
+                <mxCell id="42" value="render()" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" source="40" target="41" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="110" y="720" as="sourcePoint"/>
+                        <mxPoint x="80" y="786" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="38" value="useRecoilState()" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" parent="1" source="41" target="37" edge="1">
+                <mxCell id="38" value="useRecoilState()" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" source="41" target="37" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="585" y="700" as="sourcePoint"/>
+                        <mxPoint x="555" y="766" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="39" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;" parent="1" source="37" edge="1">
+                <mxCell id="39" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" source="37" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="190" y="798" as="targetPoint"/>
+                        <mxPoint x="160" y="864" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="43" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;Atom:Type&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;p1IsNext: boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;previousBoard: Array&amp;lt;Array&amp;lt;number&amp;gt;&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;currentBoard: Array&amp;lt;Array&amp;lt;number&amp;gt;&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="520" y="480" width="240" height="80" as="geometry"/>
+                <mxCell id="43" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;text-decoration:underline;&quot;&gt;&lt;b&gt;Atom:Type&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;p1IsNext: boolean&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;previousBoard: Array&amp;lt;Array&amp;lt;number&amp;gt;&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;currentBoard: Array&amp;lt;Array&amp;lt;number&amp;gt;&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;comic=1;" parent="1" vertex="1">
+                    <mxGeometry x="646" y="526" width="240" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="render()" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;rounded=1;strokeColor=default;startFill=0;" parent="1" source="41" target="44" edge="1">
+                <mxCell id="45" value="render()" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;rounded=1;strokeColor=#000000;startFill=0;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" source="41" target="44" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="270" y="840" as="sourcePoint"/>
+                        <mxPoint x="240" y="906" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="230" y="840"/>
+                            <mxPoint x="200" y="906"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="65" value="render()" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;rounded=1;strokeColor=default;startFill=0;" edge="1" parent="1">
+                <mxCell id="65" value="render()" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;rounded=1;strokeColor=#000000;startFill=0;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="350" y="920" as="sourcePoint"/>
+                        <mxPoint x="320" y="986" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="450" y="920"/>
+                            <mxPoint x="420" y="986"/>
                         </Array>
-                        <mxPoint x="490" y="920" as="targetPoint"/>
+                        <mxPoint x="460" y="986" as="targetPoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="69" value="setGomokuAtom()" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;startFill=0;" edge="1" target="68" parent="1">
+                <mxCell id="69" value="setGomokuAtom()" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;startFill=0;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" target="68" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="513" y="1000" as="sourcePoint"/>
+                        <mxPoint x="483" y="1066" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="50" value="loop[boadsize]" style="shape=umlFrame;whiteSpace=wrap;html=1;width=90;height=30;swimlaneFillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="280" y="880" width="480" height="280" as="geometry"/>
+                <mxCell id="50" value="loop[boadsize]" style="shape=umlFrame;whiteSpace=wrap;html=1;width=90;height=30;swimlaneFillColor=none;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="946" width="480" height="280" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;" edge="1" parent="1">
+                <mxCell id="72" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;strokeColor=#000000;shadow=0;snapToPoint=0;fixDash=0;metaEdit=0;backgroundOutline=0;movable=1;comic=1;enumerate=0;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="80" y="1240" as="targetPoint"/>
-                        <mxPoint x="180" y="1240" as="sourcePoint"/>
+                        <mxPoint x="50" y="1306" as="targetPoint"/>
+                        <mxPoint x="150" y="1306" as="sourcePoint"/>
                         <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;GomokuBoard&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin: 6px 0px 0px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- boardState: Array&amp;lt;Array&amp;lt;number&amp;gt;&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 6px 0px 0px;&quot;&gt;- clickEvent: (x: number, y: number) =&amp;gt; void&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;shadow=0;strokeColor=#000000;comic=1;" vertex="1" parent="1">
+                    <mxGeometry x="97" y="524" width="242" height="73" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="" style="shape=component;jettyWidth=8;jettyHeight=4;shadow=0;strokeColor=#000000;comic=1;" vertex="1" parent="73">
+                    <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+                        <mxPoint x="-24" y="4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="79" value="" style="endArrow=none;html=1;shadow=0;comic=1;sketch=0;strokeColor=#000000;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="73">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="664" as="sourcePoint"/>
+                        <mxPoint x="395" y="548" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="81" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;GomokuGrid&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;- gridState: number&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;- clickEvent: () =&amp;gt; void&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;shadow=0;strokeColor=#000000;comic=1;" vertex="1" parent="1">
+                    <mxGeometry x="395" y="526" width="179" height="71" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="" style="shape=component;jettyWidth=8;jettyHeight=4;shadow=0;strokeColor=#000000;comic=1;" vertex="1" parent="81">
+                    <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+                        <mxPoint x="-24" y="4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="83" value="" style="endArrow=none;html=1;shadow=0;comic=1;sketch=0;strokeColor=#000000;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="81">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="666" as="sourcePoint"/>
+                        <mxPoint x="391" y="530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="84" value="" style="endArrow=none;html=1;shadow=0;comic=1;sketch=0;strokeColor=#000000;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="43">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="640" y="666" as="sourcePoint"/>
+                        <mxPoint x="620" y="581.5" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useRecoilValue } from 'recoil'
 import { gomokuData } from '@/recoil/game/gameinfo'
 import Connfetti from '@/components/ui_components/confetti'

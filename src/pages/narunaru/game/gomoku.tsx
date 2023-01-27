@@ -31,7 +31,7 @@ const GomokuGrid = (props: GridInfo) => {
 
   return (
     <div className='flex w-10 h-10 border text-center justify-center items-center'
-       onClick={props.clickEvent}
+         onClick={props.clickEvent}
     >
       {props.gridState == EMPTY && <p className='w-full h-full hover:bg-gray-100'></p>}
       {props.gridState == P1    && <p className='w-full h-full bg-pink-300'></p>}

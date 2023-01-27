@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 interface HeaderInfo {
   readonly gameTitle: string,
-  clickToBack: () => void
+  clickToBack?: () => void
 }
 
 const GameHeader = (props: HeaderInfo) => {
