@@ -22,6 +22,7 @@ const NavBar = ({ children }: Props) => {
           <li><Link href="/narunaru/profile">Profile</Link></li>
           <li><Link href="/narunaru/game">Game</Link></li>
           <li><Link href="/narunaru/note">Note</Link></li>
+          <li><Link href="/narunaru/tool">Tool</Link></li>
         </div>
       </nav>
     </div>
