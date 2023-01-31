@@ -11,7 +11,7 @@ import Sakura from '@/components/ui_components/sakura'
 import BackToTop from '@/components/ui_components/backtotop'
 import { pageInfo } from '@/recoil/siteinfo/siteinfo'
 import ShareFooter from '@/components/layouts/sharefooter'
-
+import gfm from 'remark-gfm'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllArticleId()
@@ -51,6 +51,7 @@ const NoteArticle = ({articleData}: Props) => {
       <ReactMarkdown
         className={styles.markdown}
         children={articleData.content}
+        remarkPlugins={[gfm]}
         components={{
           code: CodeBlock
         }}
