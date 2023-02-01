@@ -15,7 +15,7 @@ thumbnail: '/images/program.jpg'
 
 ## **なぜReact(NextJs)にしたか**
 
-Webフロント開発のフレームワークは、今回紹介するReactJsを始め、Googleによって開発されたAngular、Svelte、Ember.js、Elm,jQuery、Flutter、VanilaJS()、そしてReactとよく比較されるVueJsなどたくさんの種類が存在します。
+Webフロント開発のフレームワークは、今回紹介するReactJsを始め、Googleによって開発されたAngular、Svelte、Ember.js、Elm、jQuery、Flutter、VanilaJS()、そしてReactとよく比較されるVueJsなどたくさんの種類が存在します。
 
 この中でなぜReactを選んだかと言うと、「友達にオススメされたから」が60%くらいで、残り40%くらいはNextJsという名前とロゴがかっこよかったからというくだらない理由です...
 
@@ -25,7 +25,7 @@ Webフロント開発のフレームワークは、今回紹介するReactJsを�
 Reactに関しては個人学習の域から出ていないので大規模に向いているなどは実感できていませんが、ライブラリの多さに関しては実感しています。
 特徴のスマホアプリが作れるという点も個人的な推しポイントです。ReactNative+Expoで簡単に作成できるので、気分転換に触っています！
 
-その他、Vueとの違いとしてあげられるのはReactは世界規模で見ると圧倒的にVueよりは人気であること。日本に限定するとVueの人気が圧倒的だったそうです。(最近はReactも伸びてきているようです)
+その他、違いとしてあげられるのはReactは世界規模で見ると圧倒的にVueよりは人気であること。日本に限定するとVueの人気が圧倒的だったそうです。(最近はReactも伸びてきているようです)
 日本語の解説も多いのはその影響でしょうか
 
 | \ | React.js | Vue.js |

@@ -1,0 +1,59 @@
+.To-do-list-container 
+  display: flex
+  flex-wrap: wrap
+  margin-top: 8rem
+
+.To-do-list 
+  flex: 1
+
+.Add-item-btn 
+  padding: 1rem
+  margin: 0
+  width: 100%
+  text-align: left
+  background: white
+  border-left: solid 10px white
+  border-right: none
+  border-top: none
+  border-bottom: none
+
+.Add-item-btn:before 
+  font-weight: bold
+  font-size: 1rem
+  line-height: 1rem
+  content: "＋"
+  opacity: 0.5
+
+.Add-item-btn:hover 
+  background: #fff8e8
+  border-left: solid 10px #ffc06e
+
+.Item-form 
+  padding: 0
+  margin: 0
+  resize: none
+  border: none
+  font-size: 1em
+  width: 95%
+  height: 100%
+  background: #fff8e8
+
+.Item-form:focus 
+  outline: 0
+
+.Delete-item-btn 
+  padding: 0
+  width: 5%
+  background: #fff8e8
+  border: none
+  transform: rotate(45deg)
+
+.Delete-item-btn:before 
+  font-weight: bold
+  font-size: 1rem
+  line-height: 1rem
+  content: "＋"
+  opacity: 0.05
+
+.Delete-item-btn:hover:before 
+  opacity: 1

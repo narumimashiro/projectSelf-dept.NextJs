@@ -3,30 +3,20 @@ import type { Task } from './types'
 
 export const todoTask = atom<Array<Task>>({
   key: 'todotask',
-  default: [
-    {
-      id: '',
-      text: ''
-    },
-  ]
+  default: []
 })
 
 export const progressTask = atom<Array<Task>>({
   key: 'progresstask',
-  default: [
-    {
-      id: '',
-      text: ''
-    },
-  ]
+  default: []
 })
 
 export const doneTask = atom<Array<Task>>({
   key: 'donetask',
-  default: [
-    {
-      id: '',
-      text: ''
-    },
-  ]
+  default: []
+})
+
+export const countTask = atom<number>({
+  key: 'taskcounter',
+  default: 0
 })
