@@ -1,18 +1,11 @@
 import Head from 'next/head'
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 import type { DraggingStyle, NotDraggingStyle, DropResult, DraggableLocation } from "react-beautiful-dnd"
-import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { todoTask, progressTask, doneTask, countTask } from '@/recoil/tool/todolist'
 import type { Task } from '@/recoil/tool/types'
 import Styles from '@/styles/pages/ToolTodoList.module.sass'
 
-// タスク進捗状態
-// const listName = {
-//   list1: 'todo',
-//   list2: 'progress',
-//   list3: 'done',
-// }
 const listName = [
   'todo',
   'progress',
@@ -24,30 +17,27 @@ interface Props {
   taskId: string,
   list: Array<Task>,
   onAddItems: (taskId: string) => void
-  onUpdateItems: (taskId: string, idx: number, e: any) => void
+  onUpdateItems: (taskId: string, idx: number, e: React.ChangeEvent<HTMLInputElement>) => void
   onDeleteItemFromList: (taskId: string, idx: number) => void
 }
-// type ListName = 'list1' | 'list2' | 'list3'
-
 
 const getListStyle = (isDraggingOver: boolean) => ({
   padding: '1rem',
   margin: '1rem',
   minWidth: '200px',
   height: '70vh',
-  background: isDraggingOver ? "lightblue" : "lightgray",
-  // textAlign: 'left',
+  background: isDraggingOver ? "#a0d8ef" : "#eaf4fc",
   borderRadius: '0.5rem',
 })
 
 const getItemStyle = (isDragging: boolean, draggableStyle: DraggingStyle | NotDraggingStyle) => ({
   display: 'flex',
-  // userselect: "none",
+  userselect: "none",
   padding: '1rem',
   margin: "0 0 8 0",
-  background: isDragging ? "lightgreen" : "gray",
-  borderLeft: 'solid 0.5rem #86cecb',
-  color: '#c3e5e7',
+  background: isDragging ? "#86cecb" : "#c3e5e7",
+  borderLeft: 'solid 0.5rem #137a7f',
+  color: '#373b3e',
   ...draggableStyle
 })
 
@@ -81,14 +71,14 @@ const move = (source: Array<Task>,
 const ListItem = (props: Props) => {
 
   return (
-    <div className={Styles['To-do-list']}>
+    <div className='flex-1'>
+      <header className='text-3xl italic text-center font-bold'>{props.taskId}</header>
       <Droppable droppableId={props.taskId}>
         {(provided, snapshot) => (
           <div {...provided.droppableProps}
                ref={provided.innerRef}
                style={getListStyle(snapshot.isDraggingOver)}
           >
-            <h2>{props.taskId}</h2>
             {props.list.map((item, index) => (
               <Draggable key={item.id}
                          draggableId={item.id}
@@ -101,18 +91,22 @@ const ListItem = (props: Props) => {
                        style={getItemStyle(snapshot.isDragging, provided.draggableProps.style!)}
                   >
                     <input type='text'
-                           className={Styles['Item-form']}
+                           className={Styles['item-form']}
                            placeholder='Please enter your task'
                            value={item.text}
                            onChange={e => props.onUpdateItems(props.taskId, index, e)}
+                    />
+                    <button className={Styles['delete-item-btn']}
+                            onClick={() => props.onDeleteItemFromList(props.taskId, index)}
                     />
                   </div>
                 )}
               </Draggable>
             ))}
             {provided.placeholder}
-            <button className={Styles['Add-item-btn']}
-                    onClick={() => props.onAddItems(props.taskId)}></button>
+            <button className={Styles['add-item-btn']}
+                    onClick={() => props.onAddItems(props.taskId)}
+            />
           </div>
         )}
       </Droppable>
@@ -128,21 +122,21 @@ const TodoListContainer = () => {
   const [itemCount, setItemCount] = useRecoilState(countTask)
 
   const getList = (taskId: string) => {
-    if('todo' == taskId) {
+    if(taskId == listName[0] /* todo */) {
       return todo
-    } else if('progress' == taskId) {
+    } else if(taskId == listName[1] /* progress */) {
       return progress
-    } else if('done' == taskId) {
+    } else if(taskId == listName[2] /* done */) {
       return done
     }
   }
 
   const setList = (taskId: string, list: Array<Task>) => {
-    if('todo' == taskId) {
+    if(taskId == listName[0] /* todo */) {
       setTodoList(list)
-    } else if('progress' == taskId) {
+    } else if(taskId == listName[1] /* progress */) {
       setProgressList(list)
-    } else if('done' == taskId) {
+    } else if(taskId == listName[2] /* done */) {
       setDoneList(list)
     }
   }
@@ -185,10 +179,11 @@ const TodoListContainer = () => {
     setItemCount(itemCount + 1)
   }
 
-  const updateItems = (taskId: string, idx: number, e: any) => {
-    const listCopy = getList(taskId)!.slice()
-    listCopy![idx].text = e.target.value
-    setList(taskId, listCopy!)
+  const updateItems = (taskId: string, idx: number, e: React.ChangeEvent<HTMLInputElement>) => {
+    const listClone = getList(taskId)!.slice()
+    listClone[idx] = { id: listClone[idx].id,
+                       text: e.target.value }
+    setList(taskId, listClone)
   }
 
   const deleteItemFromList = (taskId: string, idx: number) => {
@@ -198,7 +193,7 @@ const TodoListContainer = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className={Styles['To-do-list-container']}>
+      <div className='flex flex-wrap mt-28'>
         {listName.map(el => (
           <ListItem key={el}
                     taskId={el}
@@ -225,5 +220,3 @@ const TodoList = () => {
   )
 }
 export default TodoList
-
-// https://amateur-engineer.com/react-to-do-app/
