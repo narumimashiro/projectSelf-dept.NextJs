@@ -16,7 +16,7 @@ const Game = () => {
         </p>
       </section>
       <div className='w-2/3 h-28 m-auto'>
-        <li className='text-2xl'><Link href='game/gomoku'>五目並べ</Link></li>
+        <li className='text-2xl mt-5 mb-5 underline hover:no-underline'><Link href='game/gomoku'>五目並べ</Link></li>
       </div>
     </div>
   )

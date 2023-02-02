@@ -15,8 +15,9 @@ const Tool = () => {
           I will continue to create tools!!
         </p>
       </section>
-      <div className='w-2/3 h-28 m-auto'>
-        <li className='text-2xl'><Link href='tool/todolist'>Todoリスト</Link></li>
+      <div className='flex justify-center flex-wrap w-2/3 h-28 m-auto'>
+        <li className='text-2xl m-auto underline hover:no-underline'><Link href='tool/todolist'>TodoList</Link></li>
+        <li className='text-2xl m-auto underline hover:no-underline'><Link href='tool/whiteboard'>WhiteBoard</Link></li>
       </div>
     </div>
   )
