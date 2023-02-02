@@ -62,7 +62,7 @@ const move = (source: Array<Task>,
   const dstClone = destination.slice()
   const [removed] = srcClone.splice(droppableSource.index, 1)
   dstClone.splice(droppableDestination.index, 0, removed)
-  const result: any = {}
+  const result: {[listName: string]: Array<Task>} = {}
   result[droppableSource.droppableId] = srcClone
   result[droppableDestination.droppableId] = dstClone
   return result
