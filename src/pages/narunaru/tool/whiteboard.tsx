@@ -18,7 +18,6 @@ const WhiteBoard = () => {
         <header>Temp White Board</header>
         <div style={getCanvasStyle()}>
           <ReactSignatureCanvas
-            penColor='black'
             canvasProps={getCanvasStyle()}
           />
         </div>
