@@ -18,7 +18,7 @@ const WhiteBoard = () => {
         <header>Temp White Board</header>
         <div style={getCanvasStyle()}>
           <ReactSignatureCanvas
-            canvasProps={getCanvasStyle()}
+            canvasProps={{width: 1600, height: 800}}
           />
         </div>
       </div>
