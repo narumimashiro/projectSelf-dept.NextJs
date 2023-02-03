@@ -604,6 +604,67 @@
   dependencies:
     "tslib" "^2.4.0"
 
+"@syncfusion/ej2-base@~20.4.48":
+  "integrity" "sha512-FOCzu/h2er3wfswcTgjDUcwGoKqPuz1I/7573pclgtbwQobI8Lwp4fTHg7ZoClBGR8NzQbV30u07L4LBtConIg=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-base/-/ej2-base-20.4.48.tgz"
+  "version" "20.4.48"
+  dependencies:
+    "@syncfusion/ej2-icons" "~20.4.48"
+
+"@syncfusion/ej2-buttons@~20.4.48":
+  "integrity" "sha512-9XJ6LZ+wmYhEeJfMNXBqSHn1gQFUe65I0hzsQsGRnduiFqxr9hRej/sJKFXckIVnwUlv06K6ZnNmdnvbxG0Zyg=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-buttons/-/ej2-buttons-20.4.48.tgz"
+  "version" "20.4.48"
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.48"
+
+"@syncfusion/ej2-icons@~20.4.48":
+  "integrity" "sha512-uPV4RzwxQ3cj6Zx4h6VvsEmrCGL9ssKG62Pa12k1fow915QSSQkJ0WZ6dBHIdXbk5nSDp2J2wDlV+5h3Ici+sg=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-icons/-/ej2-icons-20.4.48.tgz"
+  "version" "20.4.48"
+
+"@syncfusion/ej2-inputs@20.4.48":
+  "integrity" "sha512-K/Q0vIcu6P8FP8h7byQiMjVRay3c71DKFuAzqFm3/riiAJVL67JRTTxWX03GURmssFzgi/RZgcmmoIviMlfPmA=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-inputs/-/ej2-inputs-20.4.48.tgz"
+  "version" "20.4.48"
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.48"
+    "@syncfusion/ej2-buttons" "~20.4.48"
+    "@syncfusion/ej2-popups" "~20.4.48"
+    "@syncfusion/ej2-splitbuttons" "~20.4.48"
+
+"@syncfusion/ej2-popups@~20.4.48":
+  "integrity" "sha512-cJIUeERatDkV2XFMgSu4ofcIQTlRKEfvzYRsO9V+j8NCrEKYi7kFB3q0h5ZkwLMinKxmHYnBoFNf4WWb3945PQ=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-popups/-/ej2-popups-20.4.48.tgz"
+  "version" "20.4.48"
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.48"
+    "@syncfusion/ej2-buttons" "~20.4.48"
+
+"@syncfusion/ej2-react-base@~20.4.48":
+  "integrity" "sha512-hm12BxvIFkdArD/v7w+yeymY4tQl/8lGQcXp3cgja/RLSjt5FNTVYS3mRRmy++HIocqdiYGhTXnEW8V4PLy+QQ=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-react-base/-/ej2-react-base-20.4.48.tgz"
+  "version" "20.4.48"
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.48"
+
+"@syncfusion/ej2-react-inputs@^20.4.48":
+  "integrity" "sha512-v9izDDZvEZF9MQ7G3bEf8Al7u9lcepH16YqM2lwtk7gu41q7LACKQBSzqbZIyVYRumcAAQwqKXkXwC6p9QxjJg=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-react-inputs/-/ej2-react-inputs-20.4.48.tgz"
+  "version" "20.4.48"
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.48"
+    "@syncfusion/ej2-inputs" "20.4.48"
+    "@syncfusion/ej2-react-base" "~20.4.48"
+
+"@syncfusion/ej2-splitbuttons@~20.4.48":
+  "integrity" "sha512-pezaed9iCUkVeNIpF1tuVIANoWcBIL2dtTdOPT0uwldZQlaTDhKUoWBv+d35hnhd2OD/0tY3fMZ/kfqq9Zl4YA=="
+  "resolved" "https://registry.npmjs.org/@syncfusion/ej2-splitbuttons/-/ej2-splitbuttons-20.4.48.tgz"
+  "version" "20.4.48"
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.48"
+    "@syncfusion/ej2-popups" "~20.4.48"
+
 "@types/debug@^4.0.0":
   "integrity" "sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg=="
   "resolved" "https://registry.npmjs.org/@types/debug/-/debug-4.1.7.tgz"
@@ -682,14 +743,6 @@
     "hoist-non-react-statics" "^3.3.0"
     "redux" "^4.0.0"
 
-"@types/react-signature-canvas@^1.0.2":
-  "integrity" "sha512-uDHDoo2JM/9qYS+U7PRKDLBgOnQOOUEkDdXjCxBvI19fWtOLqXisrjiquPu+enu5iu2oWIfU7cVhn1QJZPkLTg=="
-  "resolved" "https://registry.npmjs.org/@types/react-signature-canvas/-/react-signature-canvas-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "@types/react" "*"
-    "@types/signature_pad" "*"
-
 "@types/react-syntax-highlighter@^15.5.5":
   "integrity" "sha512-QH3JZQXa2usAvJvSsdSUJ4Yu4j8ReuZpgRrEW+XP+Rmosbn425YshW9iGEb/pAARm8496axHhHUPRH3UmTiB6A=="
   "resolved" "https://registry.npmjs.org/@types/react-syntax-highlighter/-/react-syntax-highlighter-15.5.5.tgz"
@@ -717,11 +770,6 @@
   "integrity" "sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew=="
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
-
-"@types/signature_pad@*":
-  "integrity" "sha512-dDfWIgRcdzAaeVOpLRmLHIumGwc5inSD4Dj2Duis3yUEoSADZECLJHKkUQphbaANQ7kSC2bkf1JzyBPSmTlrPQ=="
-  "resolved" "https://registry.npmjs.org/@types/signature_pad/-/signature_pad-2.3.2.tgz"
-  "version" "2.3.2"
 
 "@types/unist@*", "@types/unist@^2.0.0":
   "integrity" "sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ=="
@@ -3183,14 +3231,6 @@
     "react-is" "^18.0.0"
     "use-sync-external-store" "^1.0.0"
 
-"react-signature-canvas@^1.0.6":
-  "integrity" "sha512-NoMHomYu9HxFeLjUGbIeV9abPdWSROfFxFNDekGdwmmaIx+w5ziOEiU2C34X0Ao4GxFnwqyUy/BpYlA4lCD1CA=="
-  "resolved" "https://registry.npmjs.org/react-signature-canvas/-/react-signature-canvas-1.0.6.tgz"
-  "version" "1.0.6"
-  dependencies:
-    "signature_pad" "^2.3.2"
-    "trim-canvas" "^0.1.0"
-
 "react-syntax-highlighter@^15.5.0":
   "integrity" "sha512-+zq2myprEnQmH5yw6Gqc8lD55QHnpKaU8TOcFeC/Lg/MQSs8UknEA0JC4nTZGFAXC2J2Hyj/ijJ7NlabyPi2gg=="
   "resolved" "https://registry.npmjs.org/react-syntax-highlighter/-/react-syntax-highlighter-15.5.0.tgz"
@@ -3446,11 +3486,6 @@
     "call-bind" "^1.0.0"
     "get-intrinsic" "^1.0.2"
     "object-inspect" "^1.9.0"
-
-"signature_pad@^2.3.2":
-  "integrity" "sha512-peYXLxOsIY6MES2TrRLDiNg2T++8gGbpP2yaC+6Ohtxr+a2dzoaqWosWDY9sWqTAAk6E/TyQO+LJw9zQwyu5kA=="
-  "resolved" "https://registry.npmjs.org/signature_pad/-/signature_pad-2.3.2.tgz"
-  "version" "2.3.2"
 
 "slash@^3.0.0":
   "integrity" "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="

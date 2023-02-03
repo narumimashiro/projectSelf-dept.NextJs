@@ -4,7 +4,8 @@ import type { DraggingStyle, NotDraggingStyle, DropResult, DraggableLocation } f
 import { useRecoilState } from 'recoil'
 import { todoTask, progressTask, doneTask, countTask } from '@/recoil/tool/todolist'
 import type { Task } from '@/recoil/tool/types'
-import Styles from '@/styles/pages/ToolTodoList.module.sass'
+import styles from '@/styles/pages/ToolTodoList.module.sass'
+import Sakura from '@/components/ui_components/sakura'
 
 const listName = [
   'todo',
@@ -91,12 +92,12 @@ const ListItem = (props: Props) => {
                        style={getItemStyle(snapshot.isDragging, provided.draggableProps.style!)}
                   >
                     <input type='text'
-                           className={Styles['item-form']}
+                           className={styles['item-form']}
                            placeholder='Please enter your task'
                            value={item.text}
                            onChange={e => props.onUpdateItems(props.taskId, index, e)}
                     />
-                    <button className={Styles['delete-item-btn']}
+                    <button className={styles['delete-item-btn']}
                             onClick={() => props.onDeleteItemFromList(props.taskId, index)}
                     />
                   </div>
@@ -104,7 +105,7 @@ const ListItem = (props: Props) => {
               </Draggable>
             ))}
             {provided.placeholder}
-            <button className={Styles['add-item-btn']}
+            <button className={styles['add-item-btn']}
                     onClick={() => props.onAddItems(props.taskId)}
             />
           </div>
@@ -215,6 +216,7 @@ const TodoList = () => {
         <title>Tool | TodoList</title>
         <meta name="discription" content="todo list can change list order drag and drop"></meta>
       </Head>
+      <Sakura/>
       <TodoListContainer/>
     </div>
   )
