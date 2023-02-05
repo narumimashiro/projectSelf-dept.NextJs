@@ -5,13 +5,17 @@ import { Canvas } from 'fabric/fabric-impl'
 import styles from '@/styles/pages/WhiteBoard.module.sass'
 
 // 定数定義
-const CANVASID = 'whiteboard'
+// ペンの色関連
 const WHITE = '#ffffff'
 const BLACK = '#0d0015'
 const BLUE = '#0000ff'
 const RED = '#ff0000'
 const GREEN = '#008000'
 const ORANGE = '#ffff00'
+const PINK = '#ff1493'
+const VIOLET = '#9400d3'
+// キャンバス設定系
+const CANVASID = 'whiteboard'
 const CANVAS_WIDTH = 1700
 const CANVAS_HEIGHT = 960
 const IMG_URL = ''
@@ -40,7 +44,7 @@ const PenColorPalette = (props: PenColorPaletteProps) => {
   return (
     <div className="flex flex-col justify-center items-center text-center">
       <header className="text-2xl font-bold underline">Pen Color</header>
-      <div className="w-full h-32 mt-4 grid grid-cols-3 place-items-center">
+      <div className="w-full h-44 mt-4 grid grid-cols-3 place-items-center">
         <button className={`${styles['color-pen-btn']} ${styles.black}`}
                 onClick={() => changePenColor(BLACK)}
         />
@@ -56,8 +60,17 @@ const PenColorPalette = (props: PenColorPaletteProps) => {
         <button className={`${styles['color-pen-btn']} ${styles.orange}`}
                 onClick={() => changePenColor(ORANGE)}
         />
+        <button className={`${styles['color-pen-btn']} ${styles.pink}`}
+                onClick={() => changePenColor(PINK)}
+        />
+        <button className={`${styles['color-pen-btn']} ${styles.violet}`}
+                onClick={() => changePenColor(VIOLET)}
+        />
         <button className={`${styles['color-pen-btn']} ${styles.white}`}
                 onClick={() => changePenColor(WHITE)}
+        />
+        <button className={`${styles['color-pen-btn']} ${styles.rainbow}`}
+                onClick={() => changePenColor('#00ffff')}
         />
       </div>
     </div>
