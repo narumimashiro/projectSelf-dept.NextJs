@@ -1,29 +1,45 @@
 import Head from 'next/head'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-import { SignatureComponent } from '@syncfusion/ej2-react-inputs'
-import { penColor } from '@/recoil/tool/whiteboard'
+import { useLayoutEffect, useEffect, useState } from 'react' 
+import { fabric } from 'fabric'
+import { Canvas } from 'fabric/fabric-impl'
 import styles from '@/styles/pages/WhiteBoard.module.sass'
-import Sakura from '@/components/ui_components/sakura'
 
 // 定数定義
+const CANVASID = 'whiteboard'
 const WHITE = '#ffffff'
 const BLACK = '#0d0015'
 const BLUE = '#0000ff'
 const RED = '#ff0000'
 const GREEN = '#008000'
+const ORANGE = '#ffff00'
+const CANVAS_WIDTH = 1700
+const CANVAS_HEIGHT = 960
 
-const PenColorPalette = () => {
+interface PenColorPaletteProps {
+  canvas: Canvas,
+  penColor: string
+}
 
-  const setPenColor = useSetRecoilState(penColor)
+const PenColorPalette = (props: PenColorPaletteProps) => {
+
+  const {canvas, penColor} = props
+  const [colorPen, setColorPen] = useState(penColor)
+
+  useEffect(() => {
+    if(canvas != undefined) {
+      canvas.freeDrawingBrush.color = colorPen
+    }
+  }, [canvas, colorPen])
 
   const changePenColor = (color: string) => {
-    setPenColor(color)
+    setColorPen(color)
+    console.log(color)
   }
   
   return (
     <div className="flex flex-col justify-center items-center text-center">
-      <header className="text-2xl font-bold">Pen Color</header>
-      <div className="w-full h-60 grid grid-cols-2 place-items-center">
+      <header className="text-2xl font-bold underline">Pen Color</header>
+      <div className="w-full h-32 mt-4 grid grid-cols-3 place-items-center">
         <button className={`${styles['color-pen-btn']} ${styles.black}`}
                 onClick={() => changePenColor(BLACK)}
         />
@@ -36,36 +52,62 @@ const PenColorPalette = () => {
         <button className={`${styles['color-pen-btn']} ${styles.green}`}
                 onClick={() => changePenColor(GREEN)}
         />
+        <button className={`${styles['color-pen-btn']} ${styles.orange}`}
+                onClick={() => changePenColor(ORANGE)}
+        />
+        <button className={`${styles['color-pen-btn']} ${styles.white}`}
+                onClick={() => changePenColor(WHITE)}
+        />
       </div>
     </div>
   )
 }
-const WhiteBoard = () => {
-
-  const colorPen = useRecoilValue(penColor)
+const CanvasBoard = (props: {id: string}) => {
+  const canvasId = props.id
 
   return (
-    <div className="min-w-screen min-h-screen">
+    <canvas className="w-full h-full" id={canvasId}/>
+  )
+}
+const WhiteBoard = () => {
+
+  const [whiteBoard, setWhiteBoard] = useState<Canvas>()
+
+  const getWhiteBoardSize = () => ({
+    width: `${CANVAS_WIDTH}px`,
+    height: `${CANVAS_HEIGHT}px`,
+  })
+
+  useLayoutEffect(() => {
+    const canvas = new fabric.Canvas(CANVASID, {
+      isDrawingMode: true,
+      width: CANVAS_WIDTH,
+      height: CANVAS_HEIGHT,
+      backgroundImage: '',
+    })
+    canvas.freeDrawingBrush.color = BLACK
+    setWhiteBoard(canvas)
+  }, [])
+
+  return (
+    <div className="min-w-screen">
       <Head>
       <title>Tool | WhiteBoard</title>
       <meta name='discription' content='whiteboard you can hand writing'></meta>
       </Head>
-      <Sakura/>
-      <div className="mt-36">
-        <div className="w-auto h-1/6"></div>
+      <div className="mt-20">
+        <div className="w-auto h-10"></div>
         <div className={styles['white-board']}>
-          <div className='w-5/6 h-full border-2 border-green-200'>
-            <SignatureComponent className='w-full h-full'
-                                backgroundColor="white"
-                                strokeColor={colorPen}
-            >
-            </SignatureComponent>
+          <div className='border-2 border-green-200'
+               style={getWhiteBoardSize()}>
+            <CanvasBoard id={CANVASID}/>
           </div>
           <div className="w-1/6 h-full">
-            <PenColorPalette/>
+            <PenColorPalette canvas={whiteBoard!}
+                             penColor={BLACK}
+            />
           </div>
         </div>
-        <div className="w-auto h-1/6"></div>
       </div>
     </div>
   )
