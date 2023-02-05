@@ -38,7 +38,6 @@ const PenColorPalette = (props: PenColorPaletteProps) => {
 
   const changePenColor = (color: string) => {
     setColorPen(color)
-    console.log(color)
   }
   
   return (
