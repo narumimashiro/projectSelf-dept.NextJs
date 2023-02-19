@@ -4,7 +4,7 @@ import { fabric } from 'fabric'
 import { Canvas } from 'fabric/fabric-impl'
 import styles from '@/styles/pages/WhiteBoard.module.sass'
 
-// Components
+// MyComponent
 import PenColorPalette from '@/components/ui_components/tool/pencolorpalette'
 import CanvasBoard from '@/components/ui_components/tool/canvasboard'
 import CanvasFuncButton from '@/components/ui_components/tool/canvasfuncbutton'

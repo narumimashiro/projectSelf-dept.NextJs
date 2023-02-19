@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import { getAllArticleInfo } from '@/lib/postnote'
+import { getDateStringYMD } from '@/lib/commonstring'
 import Sakura from '@/components/ui_components/sakura'
 import styles from '@/styles/pages/Note.module.sass'
 
@@ -18,14 +19,6 @@ export const getStaticProps = async () => {
 }
 
 const Note = ({ articleDataList }: Props) => {
-
-  const editDate = (date: string) => {
-    // date : YYYYMMDD
-    const year = date.slice(0, 4)
-    const month = date.slice(4, 6)
-    const day = date.slice(6, 8)
-    return year + '-' + month + '-' + day
-  }
 
   return (
     <div className="mt-28">
@@ -52,7 +45,7 @@ const Note = ({ articleDataList }: Props) => {
               <Link href={'./note/'+`${el.article}`}>
                 <p className="text-2xl font-bold pt-4 hover:underline">{el.title}</p>
               </Link>
-              <small className="text-base text-gray-400">{editDate(el.date)}</small>
+              <small className="text-base text-gray-400">{getDateStringYMD(el.date)}</small>
             </article>
           )}
         </div>
