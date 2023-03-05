@@ -25,3 +25,16 @@ export const createRandomId = (idLen: number) => {
     strList[num % strList.length]
   )).join('')
 }
+
+export const whatTimeIsItNow = () => {
+  const timeData = new Date()
+  const year = timeData.getFullYear()
+  const month = ('0' + `${timeData.getMonth() + 1}`).slice(-2)
+  const date = ('0' + timeData.getDate()).slice(-2)
+  const hours = ('0' + timeData.getHours()).slice(-2)
+  const minutes = ('0' + timeData.getMinutes()).slice(-2)
+  const seconds = ('0' + timeData.getSeconds()).slice(-2)
+
+  // YYYYMMDDHHMMSS
+  return `${year}${month}${date}${hours}${minutes}${seconds}`
+}

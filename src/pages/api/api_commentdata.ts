@@ -50,6 +50,7 @@ const handler = async (
     else if(req.method === 'POST') {
       await addDoc(dataCollection, {...req.body})
       console.log({...req.body})
+      return res.status(200).json('Send Complete')
     }
 
     // Delete Request
