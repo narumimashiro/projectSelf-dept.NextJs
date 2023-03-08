@@ -5,6 +5,5 @@ const ID_LENGTH = 16
 
 export const userId = atom<string>({
   key: 'userid',
-  // default: createRandomId(ID_LENGTH)
-  default: 'prsk'
+  default: `${createRandomId(ID_LENGTH)}`
 })

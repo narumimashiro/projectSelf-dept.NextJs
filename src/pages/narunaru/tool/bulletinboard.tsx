@@ -32,7 +32,6 @@ const BulletinBoard = () => {
     (async () => {
       setCommentData(await getCommentFromDB())
     })()
-    console.log("porsl")
   }, [])
 
   const getCommentFromDB = async () => {
@@ -45,7 +44,6 @@ const BulletinBoard = () => {
   }
 
   const clearText = () => {
-    console.log("prsk")
     setComment('')
   }
 
