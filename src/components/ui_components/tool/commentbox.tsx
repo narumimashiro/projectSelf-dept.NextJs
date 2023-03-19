@@ -1,4 +1,4 @@
-import { getDateStringYMDHMS, createRandomId } from '@/lib/commonstring'
+import { getDateStringYMDHMS } from '@/lib/commonstring'
 
 interface Props {
   index: number,

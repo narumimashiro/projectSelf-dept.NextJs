@@ -1,26 +1,39 @@
+import { useState } from 'react'
+import { useRecoilValue } from 'recoil'
+import axios from 'axios'
+import { API_COMMENTDATA } from '@/pages/narunaru/tool/bulletinboard'
+import { whatTimeIsItNow } from '@/lib/commonstring'
 
-interface Props {
-  message: string,
-  callbackChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
-  callbackClick: () => void
-}
+// Recoil
+import { userId, commentData } from '@/recoil/tool/bulletinboard'
+import { CommentData } from '@/recoil/tool/types'
 
-const SendMessage = (props: Props) => {
+const SendMessage = () => {
 
-  const temp = () => {
-    console.log('push')
+  const userid = useRecoilValue(userId)
+  const [commentText, setComment] = useState('')
+
+  const addCommentToFirestore = async () => {
+    const sendData: CommentData = {
+      user: userid,
+      date: whatTimeIsItNow(),
+      comment: commentText
+    }
+    await axios.post(API_COMMENTDATA, {...sendData}).then(() => {
+      setComment('')
+    })
   }
 
   return (
     <div className="flex flex-col w-full h-full">
       <textarea className="w-full h-40 border-2 resize-none"
                 placeholder="Enter Text"
-                value={props.message}
-                onChange={(e) => props.callbackChange(e)}
+                value={commentText}
+                onChange={(e) => setComment(e.target.value)}
       />
       <div className="text-right">
         <button className="w-12 h-8 bg-gray-200 mt-4 mr-8"
-                onClick={props.callbackClick}>Send</button>
+                onClick={addCommentToFirestore}>Send</button>
       </div>
     </div>
   )

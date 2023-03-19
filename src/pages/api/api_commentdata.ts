@@ -1,18 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { collection, getDocs, addDoc } from 'firebase/firestore'
+import { doc, collection, getDocs, addDoc, updateDoc, deleteDoc } from 'firebase/firestore'
 import { signInAnonymously } from 'firebase/auth'
 import { db, auth } from '@/lib/firebase'
+import { UID, CommentData } from '@/recoil/tool/types'
 
-interface CommentData {
-  uid: string,
-  id: string,
-  date: string,
-  comment: string,
-}
+const BULLETINBOARD = 'BulletinBoard'
 
 const handler = async (
     req: NextApiRequest,
-    res: NextApiResponse<Array<CommentData> | string>
+    res: NextApiResponse<Array<UID & CommentData> | string>
   ) => {
 
     // Anonymouse Login
@@ -24,16 +20,16 @@ const handler = async (
       return res.status(500).json('Anonymouse Authentication Error')
     })
 
-    const dataCollection = collection(db, 'BulletinBoard')
+    const dataCollection = collection(db, BULLETINBOARD)
 
     // GET Request
     if(req.method === 'GET') {
-      let resData = Array<CommentData>()
+      let resData = Array<UID & CommentData>()
       await getDocs(dataCollection).then((snapshot) => {
         snapshot.docs.map((doc) => {
           resData.unshift({
             uid: doc.id,
-            id: doc.data().id,
+            user: doc.data().user,
             date: doc.data().date,
             comment: doc.data().comment,
           })
@@ -48,13 +44,33 @@ const handler = async (
 
     // POST Request
     else if(req.method === 'POST') {
-      await addDoc(dataCollection, {...req.body})
-      console.log({...req.body})
-      return res.status(200).json('Send Complete')
+      await addDoc(dataCollection, {...req.body}).then(() => {
+        return res.status(200).json('Send Complete')
+      })
+      .catch((error) => {
+        console.log(error.message)
+        return res.status(500).json('Sorry, cannot get firebase collection...')
+      })
     }
 
     // Delete Request
     else if(req.method === 'DELETE') {
+      if(req.body.mode == 'commentdelete') {
+        const delCollection = doc(db, BULLETINBOARD, req.body.uid)
+        await updateDoc(delCollection, {
+          comment: 'Comment Removed...'
+        })
+        .then(() => {
+          return res.status(200).json('success delete comment')
+        })
+        .catch((error) => {
+          console.log(error)
+          return res.status(500).json('Failed delete comment, please try again')
+        })
+      }
+      else if(req.body.mode == 'completedelete') {
+        await deleteDoc(doc(db, BULLETINBOARD, req.body.uid))
+      }
     }
 }
 export default handler

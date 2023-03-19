@@ -19,7 +19,7 @@ export const getDateStringYMDHMS = (date: string) => {
   return `${year}-${month}-${day}-${hour}-${minutes}-${seconds}`
 }
 
-export const createRandomId = (idLen: number) => {
+export const createRandomString = (idLen: number) => {
   const strList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
   return Array.from(crypto.getRandomValues(new Uint32Array(idLen))).map((num) => (
     strList[num % strList.length]
