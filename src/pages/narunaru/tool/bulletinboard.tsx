@@ -9,7 +9,6 @@ import SendMessage from '@/components/ui_components/tool/sendmessage'
 
 // Recoil
 import { commentData, isChange } from '@/recoil/tool/bulletinboard'
-import { UID, CommentData } from '@/recoil/tool/types'
 // lib
 import { sortInDateOrder } from '@/lib/common'
 // ApiURL定義
