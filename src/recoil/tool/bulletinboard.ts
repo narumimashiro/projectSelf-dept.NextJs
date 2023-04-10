@@ -4,6 +4,11 @@ import { CommentData, UID } from './types'
 
 const ID_LENGTH = 16
 
+export const isChange = atom<boolean>({
+  key: 'ischange',
+  default: true
+})
+
 export const userId = atom<string>({
   key: 'userid',
   default: `${createRandomString(ID_LENGTH)}`

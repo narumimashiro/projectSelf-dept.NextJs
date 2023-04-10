@@ -8,7 +8,10 @@ import CommentBox from '@/components/ui_components/tool/commentbox'
 import SendMessage from '@/components/ui_components/tool/sendmessage'
 
 // Recoil
-import { commentData } from '@/recoil/tool/bulletinboard'
+import { commentData, isChange } from '@/recoil/tool/bulletinboard'
+import { UID, CommentData } from '@/recoil/tool/types'
+// lib
+import { sortInDateOrder } from '@/lib/common'
 // ApiURL定義
 export const API_COMMENTDATA = '/api/api_commentdata'
 
@@ -24,21 +27,33 @@ const MAXCOMMENTS = 3
 
 const BulletinBoard = () => {
 
+  const [dataChange, setChange] = useRecoilState(isChange)
   const [comments, setCommentData] = useRecoilState(commentData)
 
   useEffect(() => {
-    (async () => {
-      const getData = await getCommentFromFirestore()
-      if(getData.length > MAXCOMMENTS) {
-        const payload = {
-          mode: COMPDELETE,
-          uid: getData[0].uid
+    if(dataChange) {
+      (async () => {
+        const getData = await getCommentFromFirestore()
+        const commentData = sortInDateOrder(getData)
+        if(commentData.length > MAXCOMMENTS) {
+          const payload = {
+            mode: COMPDELETE,
+            uid: commentData[0].uid
+          }
+          deleteCommentFromFirestore(payload)
+          setCommentData(commentData.slice(1))
+        } else {
+          setCommentData(commentData)
         }
-        deleteCommentFromFirestore(payload)
-      }
-      setCommentData(getData)
-    })()
-  }, [])
+      })()
+      setChange(false)
+    }
+  }, [dataChange])
+
+  // 1分おきに更新かけてみる /* 暫定処理 */
+  setTimeout(() => {
+    setChange(true)
+  }, 60 * 1000)
 
   const getCommentFromFirestore = async () => {
     return await axios.get(API_COMMENTDATA).then((res) => {
@@ -57,6 +72,7 @@ const BulletinBoard = () => {
     })
     .then((res) => {
       // console.log(res.data) // for debug
+      setChange(true)
     })
   }
 
@@ -75,15 +91,16 @@ const BulletinBoard = () => {
       {/* 右半分コメント表示エリア */}
       <div className="flex flex-col border-4 w-1/2 min-h-screen mt-20 float-right">
         {comments.map((el, index) => (
-          <>
+          <div className="flex" key={index}>
             <CommentBox key={index}
                         index={index}
                         id={el.user}
                         date={el.date}
                         comment={el.comment}
             />
-            <button onClick={() => deleteCommentFromFirestore({mode : COMMENTDELETE, uid : el.uid})}>X</button>
-          </>
+            <button className="pr-8"
+                    onClick={() => deleteCommentFromFirestore({mode : COMMENTDELETE, uid : el.uid})}>Delete</button>
+          </div>
         ))}
       </div>
     </div>

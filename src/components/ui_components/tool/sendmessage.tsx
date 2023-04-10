@@ -1,16 +1,17 @@
 import { useState } from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import axios from 'axios'
 import { API_COMMENTDATA } from '@/pages/narunaru/tool/bulletinboard'
 import { whatTimeIsItNow } from '@/lib/commonstring'
 
 // Recoil
-import { userId, commentData } from '@/recoil/tool/bulletinboard'
+import { userId, isChange } from '@/recoil/tool/bulletinboard'
 import { CommentData } from '@/recoil/tool/types'
 
 const SendMessage = () => {
 
   const userid = useRecoilValue(userId)
+  const [dataChange, setChange] = useRecoilState(isChange)
   const [commentText, setComment] = useState('')
 
   const addCommentToFirestore = async () => {
@@ -19,6 +20,7 @@ const SendMessage = () => {
       date: whatTimeIsItNow(),
       comment: commentText
     }
+    setChange(true)
     await axios.post(API_COMMENTDATA, {...sendData}).then(() => {
       setComment('')
     })
